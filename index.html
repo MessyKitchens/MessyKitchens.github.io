@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>MessyKitchens</title>
+  <meta name="description" content="Project page for MessyKitchens: Contact-rich Object-level 3D Scene Reconstruction">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+  <meta charset="utf-8">
+
+  <!--Facebook preview-->
+  <meta property="og:image" content="https://randing2000.github.io/MessyKitchens.github.io/resrc/MK_Teaser.pdf">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="600">
+  <meta property="og:image:height" content="400">
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://randing2000.github.io/MessyKitchens.github.io/"/>
+  <meta property="og:title" content="MessyKitchens"/>
+  <meta property="og:description" content="Project page for MessyKitchens: Contact-rich Object-level 3D Scene Reconstruction."/>
+
+  <!--Twitter preview-->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="MessyKitchens" />
+  <meta name="twitter:description" content="Project page for MessyKitchens: Contact-rich Object-level 3D Scene Reconstruction."/>
+  <meta name="twitter:image" content="https://randing2000.github.io/MessyKitchens.github.io/resrc/teaser.png">
+
+  <!--Style-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="style.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<div class="container" style="text-align:center; padding:2rem 15px">
+  <div class="row" style="text-align:center">
+    <h1>MessyKitchens: Contact-rich Object-level</h1>
+    <h1>3D Scene Reconstruction</h1>
+  </div>
+  <div class="row" style="text-align:center">
+    <div class="col-xs-0 col-md-2"></div>
+    <div class="col-xs-14 col-md-14">
+      <h4>
+        <a href="https://junaidcs032.github.io/"><nobr>Junaid Ansari</nobr><sup>*</sup></a> &emsp;
+        <a href="https://randing2000.github.io/"><nobr>Ran Ding</nobr><sup>*</sup></a> &emsp;
+        <a href="https://mbzuai.ac.ae/study/faculty/fabio-pizzati/"><nobr>Fabio Pizzati</nobr><sup>1</sup></a> &emsp;
+        <a href="https://mbzuai.ac.ae/study/faculty/ivan-laptev/"><nobr>Ivan Laptev</nobr><sup>1</sup></a>
+      </h4>
+      <sup>1</sup> Mohamed Bin Zayed University of Artificial Intelligence (MBZUAI), Abu Dhabi, UAE &emsp;
+        <span class="subdued_text"><sup>*</sup>Equal contribution.</span>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="text-align:center; padding:1rem">
+  <embed src="resrc/MK_Teaser.pdf" type="application/pdf" width="100%" height="500" style="max-width: 1100px" />
+  <h3 style="text-align:center; padding-top:1rem">
+    <span class="label label-info">Paper — Coming Soon</span>
+    <span class="label label-info">Code — Coming Soon</span>
+  </h3>
+</div>
+
+<div class="container">
+  <h3>Abstract</h3>
+  <hr/>
+  <p>
+  Monocular 3D scene reconstruction has recently seen significant progress. Powered by modern neural architectures and large-scale data, recent methods achieve high performance in depth estimation from a single image. Meanwhile, reconstructing and decomposing common scenes into individual 3D objects remains a hard challenge due to the large variety of objects, frequent occlusions and complex object relations.
+  Notably, beyond shape and pose estimation of individual objects, applications in robotics and animation require physically-plausible scene reconstruction where objects obey physical principles of non-penetration and realistic contacts.
+  In this work we advance object-level scene reconstruction along two directions. First, we introduce <em>MessyKitchens</em>, a new dataset with real-world scenes featuring cluttered environments and providing high-fidelity object-level ground truth in terms of 3D object shapes, poses and accurate object contacts. Second, we build on the recent SAM 3D approach for single-object reconstruction and extend it with Multi-Object Decoder (MOD) for joint object-level scene reconstruction.
+  To validate our contributions, we demonstrate MessyKitchens to significantly improve previous datasets in registration accuracy and inter-object penetration. We also compare our multi-object reconstruction approach on three datasets and demonstrate consistent and significant improvements of MOD over the state of the art. Our new benchmark, code and pre-trained models will become publicly available.
+  </p>
+
+  <h3>Overview</h3>
+  <hr/>
+  <div class="row" style="text-align: center">
+    <div class="col-xs-12">
+      <img src="resrc/overview.jpg" alt="overview.jpg" class="text-center" style="width: 100%; max-width: 1100px">
+    </div>
+  </div>
+  <p>
+    Overview of our approach. We introduce MessyKitchens dataset with high-fidelity object-level ground truth and extend SAM 3D with Multi-Object Decoder (MOD) for joint object-level scene reconstruction.
+  </p>
+
+  <h3>Results</h3>
+  <hr/>
+  <div class="row" style="text-align: center; padding-left:1rem; padding-right:1rem; padding-bottom:1rem;">
+    <h4>Qualitative reconstruction results on MessyKitchens.</h4>
+  </div>
+  <div class="row" style="text-align: center">
+    <div class="col-xs-2"></div>
+    <div class="col-xs-4">
+      <img src="resrc/result1.jpg" alt="result1.jpg" class="text-center" style="width: 100%; max-width: 900px">
+      <p>Result 1</p>
+    </div>
+    <div class="col-xs-4">
+      <img src="resrc/result2.jpg" alt="result2.jpg" class="text-center" style="width: 100%; max-width: 900px">
+      <p>Result 2</p>
+    </div>
+  </div>
+  <div class="row" style="text-align: center; margin-top:10px">
+    <div class="col-xs-2"></div>
+    <div class="col-xs-4">
+      <img src="resrc/result3.jpg" alt="result3.jpg" class="text-center" style="width: 100%; max-width: 900px">
+      <p>Result 3</p>
+    </div>
+    <div class="col-xs-4">
+      <img src="resrc/result4.jpg" alt="result4.jpg" class="text-center" style="width: 100%; max-width: 900px">
+      <p>Result 4</p>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="padding-top:3rem; padding-bottom:3rem">
+  <p style="text-align:center">
+  &#169; This webpage was in part inspired from this
+  <a href="https://github.com/monniert/project-webpage">template</a>.
+  </p>
+</div>
+
+</body>
+</html>
