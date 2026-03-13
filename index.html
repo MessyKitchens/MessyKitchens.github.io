@@ -95,20 +95,21 @@
 
   <h3>Method</h3>
   <hr/>
-  <div class="row" style="text-align: center">
+  <div class="row" style="text-align: center;">
     <div class="col-xs-12">
-      <img src="resrc/method.png" alt="method" class="text-center" style="width: 100%; max-width: 1100px">
+      <img src="resrc/method.png" alt="method" class="method-figure" style="width: 100%; max-width: 1100px;">
     </div>
   </div>
-  <p>
+  <p class="method-caption">
   Overview of our approach. SAM 3D outputs 3D shapes from input images and masks. We use MOD to refine SAM 3D pose predictions with scene-level constraints. The residual refined term is summed to the original prediction for scene-aware pose estimation.
   </p>
 
-  <h3>Multi-Object Decoder (MOD)</h3>
-  <hr/>
-  <div class="row" style="text-align: center">
+  <hr class="new"/>
+
+  <h4 style="margin-top: 1.5rem; margin-bottom: 1rem;"><strong>Multi-Object Decoder (MOD)</strong></h4>
+  <div class="row" style="text-align: center;">
     <div class="col-xs-12">
-      <img src="resrc/mod_decoder.png" alt="MOD" class="text-center" style="width: 100%; max-width: 800px">
+      <img src="resrc/mod_decoder.png" alt="MOD" class="method-figure" style="width: 100%; max-width: 800px;">
     </div>
   </div>
   <p>
@@ -138,17 +139,6 @@
       <p><em>Distance+normals (Ours)</em></p>
     </div>
   </div>
-
-  <h3>Benchmark Results</h3>
-  <hr/>
-  <div class="row" style="text-align: center">
-    <div class="col-xs-12">
-      <img src="resrc/benchmark.png" alt="benchmark" class="text-center" style="width: 100%; max-width: 1100px">
-    </div>
-  </div>
-  <p>
-  MOD achieves state-of-the-art on MessyKitchens, GraspNet-1B, and HouseCat6D. On MessyKitchens: Object IoU 0.445 (vs SAM 3D 0.409), Scene IoU 0.472 (vs 0.431). Strong out-of-distribution generalization on HouseCat6D (Object IoU 0.404 vs 0.325).
-  </p>
 
   <h3>Qualitative Results</h3>
   <hr/>

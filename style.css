@@ -61,3 +61,12 @@ table {
 .label-info[href]:hover {
   background-color: #cb5920;
 }
+
+.method-figure {
+  margin: 1rem auto 1.5rem auto;
+  display: block;
+}
+
+.method-caption {
+  margin-bottom: 1.5rem;
+}
