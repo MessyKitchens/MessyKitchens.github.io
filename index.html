@@ -70,6 +70,29 @@
   To validate our contributions, we demonstrate MessyKitchens to significantly improve previous datasets in registration accuracy and inter-object penetration. We also compare our multi-object reconstruction approach on three datasets and demonstrate consistent and significant improvements of MOD over the state of the art. Our new benchmark, code and pre-trained models will become publicly available on our project website: <a href="https://messykitchens.github.io/">https://messykitchens.github.io/</a>.
   </p>
 
+  <h3>Introduction</h3>
+  <hr/>
+  <p>
+  Accurate 3D scene reconstruction plays a pivotal role for many applications in digital arts, industrial inspection, heritage preservation, robot learning and simulation. While navigation may only require free space estimation, robotic manipulation and animation rely on detailed reconstruction of individual objects with physically-plausible contacts.
+  </p>
+  <p>
+  We advance object-level scene reconstruction on two fronts. <em>First</em>, we introduce <em>MessyKitchens</em>, a new benchmark with 100 real-world scenes featuring cluttered environments, 130 kitchen objects scanned with high precision, and accurate object contacts. We also provide MessyKitchens-Synthetic with 1.8k contact-rich scenes and 10.8k rendered images for training. <em>Second</em>, we propose Multi-Object Decoder (MOD), extending SAM 3D with joint object-level scene reconstruction that captures contextual relationships and enforces physically-plausible configurations.
+  </p>
+
+  <h3>MessyKitchens Benchmark</h3>
+  <hr/>
+  <div class="row" style="text-align: center">
+    <div class="col-xs-12">
+      <img src="resrc/samples.png" alt="samples" class="text-center" style="width: 100%; max-width: 1100px">
+    </div>
+  </div>
+  <p>
+  <strong>Data acquisition.</strong> We collect 100 real scenes with 130 kitchenware objects from 10 kitchens, scanned using an Einstar Vega 3D scanner. Objects are scanned on a transparent acrylic surface from above and below for complete geometry. Scenes are assembled with three difficulty levels: <strong>Easy</strong> (4 objects, minimal contact), <strong>Medium</strong> (6 objects, stacked configurations), <strong>Hard</strong> (8 objects, nested and maximum contact). Our normals-aware registration pipeline achieves mean depth error of <strong>1.62 mm</strong> and median <strong>0.91 mm</strong>—49.7% improvement over the second-best benchmark.
+  </p>
+  <p>
+  <strong>Synthetic data.</strong> MessyKitchens-Synthetic uses GSO assets with 600 scenes per difficulty level, 6 views each (10,800 images total), rendered with Blender Cycles for photorealism.
+  </p>
+
   <h3>Method</h3>
   <hr/>
   <div class="row" style="text-align: center">
@@ -78,7 +101,7 @@
     </div>
   </div>
   <p>
-    Overview of our approach. We introduce MessyKitchens dataset with high-fidelity object-level ground truth and extend SAM 3D with Multi-Object Decoder (MOD) for joint object-level scene reconstruction.
+  Overview of our approach. SAM 3D outputs 3D shapes from input images and masks. We use MOD to refine SAM 3D pose predictions with scene-level constraints. The residual refined term is summed to the original prediction for scene-aware pose estimation.
   </p>
 
   <h3>Multi-Object Decoder (MOD)</h3>
@@ -88,6 +111,44 @@
       <img src="resrc/mod_decoder.png" alt="MOD" class="text-center" style="width: 100%; max-width: 800px">
     </div>
   </div>
+  <p>
+  MOD uses K blocks with multi-object self-attention for pose tokens and cross-attention to ground pose predictions to shape tokens. We train with Chamfer distance, quaternion alignment, translation and scale losses. At inference, we extract tokens for objects detected by SAM 3 and refine poses with MOD.
+  </p>
+
+  <h3>Data Quality: Registration & Physical Consistency</h3>
+  <hr/>
+  <div class="row" style="text-align: center; padding-left:1rem; padding-right:1rem; padding-bottom:1rem;">
+    <h4>Contacts vs. penetration across benchmarks. MessyKitchens achieves the best ratio (0.14), demonstrating physically-realistic contacts.</h4>
+  </div>
+  <div class="row" style="text-align: center">
+    <div class="col-xs-12">
+      <img src="resrc/penetration.png" alt="penetration" class="text-center" style="width: 100%; max-width: 500px">
+    </div>
+  </div>
+  <p>
+  <strong>Registration ablation.</strong> Our distance+normals registration considerably improves over distance-only. Manual: 4.69 mm mean error; Distance only: 2.89 mm; Distance+normals (Ours): <strong>1.62 mm</strong>.
+  </p>
+  <div class="row" style="text-align: center">
+    <div class="col-xs-6">
+      <img src="resrc/before.png" alt="before" class="text-center" style="width: 100%; max-width: 400px">
+      <p><em>Distance only</em></p>
+    </div>
+    <div class="col-xs-6">
+      <img src="resrc/after.png" alt="after" class="text-center" style="width: 100%; max-width: 400px">
+      <p><em>Distance+normals (Ours)</em></p>
+    </div>
+  </div>
+
+  <h3>Benchmark Results</h3>
+  <hr/>
+  <div class="row" style="text-align: center">
+    <div class="col-xs-12">
+      <img src="resrc/benchmark.png" alt="benchmark" class="text-center" style="width: 100%; max-width: 1100px">
+    </div>
+  </div>
+  <p>
+  MOD achieves state-of-the-art on MessyKitchens, GraspNet-1B, and HouseCat6D. On MessyKitchens: Object IoU 0.445 (vs SAM 3D 0.409), Scene IoU 0.472 (vs 0.431). Strong out-of-distribution generalization on HouseCat6D (Object IoU 0.404 vs 0.325).
+  </p>
 
   <h3>Qualitative Results</h3>
   <hr/>
@@ -96,14 +157,15 @@
       <img src="resrc/qualitative.png" alt="qualitative" class="text-center" style="width: 100%; max-width: 1100px">
     </div>
   </div>
+  <p>
+  Qualitative comparison on MessyKitchens. MOD refines pose and scale by enforcing scene-level geometric consistency. Gray surfaces denote ground truth. MOD correctly reconstructs objects in contact.
+  </p>
 
-  <h3>Benchmark Results</h3>
+  <h3>Conclusion</h3>
   <hr/>
-  <div class="row" style="text-align: center">
-    <div class="col-xs-12">
-      <img src="resrc/benchmark.png" alt="benchmark" class="text-center" style="width: 100%; max-width: 800px">
-    </div>
-  </div>
+  <p>
+  We introduced MessyKitchens, a benchmark with cluttered, contact-rich real-world scenes and high-fidelity 3D ground truth, and Multi-Object Decoder (MOD) for joint object-level scene reconstruction. Extensive experiments demonstrate that our approach significantly outperforms state-of-the-art on MessyKitchens, GraspNet-1B, and HouseCat6D, with strong out-of-distribution generalization. We believe MessyKitchens and MOD will provide a robust foundation for physics-consistent 3D computer vision.
+  </p>
 </div>
 
 <div class="container" style="padding-top:3rem; padding-bottom:3rem">
