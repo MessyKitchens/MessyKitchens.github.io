@@ -24,6 +24,44 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
+const datasetViewerImage = document.querySelector('#dataset-viewer-image');
+const datasetViewerVideo = document.querySelector('#dataset-viewer-video');
+const datasetViewerVideoSource = document.querySelector('#dataset-viewer-video-source');
+const datasetViewerCaption = document.querySelector('#dataset-viewer-caption');
+const datasetViewerVideoCaption = document.querySelector('#dataset-viewer-video-caption');
+const datasetThumbs = Array.from(document.querySelectorAll('.dataset-thumb'));
+
+const updateDatasetViewer = trigger => {
+  if (!trigger || !datasetViewerImage || !datasetViewerVideo || !datasetViewerVideoSource) {
+    return;
+  }
+
+  const {
+    datasetImage,
+    datasetVideo,
+    datasetPoster,
+    datasetCaption,
+    datasetVideoCaption,
+  } = trigger.dataset;
+
+  datasetViewerImage.src = datasetImage || '';
+  datasetViewerImage.alt = trigger.textContent.trim() || 'MessyKitchens dataset example';
+  datasetViewerCaption.textContent = datasetCaption || '';
+  datasetViewerVideoCaption.textContent = datasetVideoCaption || '';
+  datasetViewerVideo.poster = datasetPoster || datasetImage || '';
+  datasetViewerVideoSource.src = datasetVideo || '';
+  datasetViewerVideo.load();
+  datasetViewerVideo.play().catch(() => {});
+
+  datasetThumbs.forEach(button => {
+    button.classList.toggle('is-active', button === trigger);
+  });
+};
+
+datasetThumbs.forEach(button => {
+  button.addEventListener('click', () => updateDatasetViewer(button));
+});
+
 const demoModal = document.querySelector('.demo-modal');
 const demoModalVideo = document.querySelector('#demo-modal-video');
 const demoModalLink = document.querySelector('#demo-modal-link');

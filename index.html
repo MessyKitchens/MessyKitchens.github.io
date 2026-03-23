@@ -55,7 +55,7 @@
   </div>
   <div class="quick-links">
     <a href="#abstract">Abstract</a>
-    <a href="#benchmark">Data Overview</a>
+    <a href="#messykitchens-dataset">MessyKitchens Dataset</a>
     <a href="#iterative-demo">MOD vs SAM 3D</a>
     <a href="#conclusion">Conclusions</a>
   </div>
@@ -80,134 +80,79 @@
   To validate our contributions, we demonstrate MessyKitchens to significantly improve previous datasets in registration accuracy and inter-object penetration. We also compare our multi-object reconstruction approach on three datasets and demonstrate consistent and significant improvements of MOD over the state of the art. Our new benchmark, code and pre-trained models will become publicly available on our project website: <a href="https://messykitchens.github.io/">https://messykitchens.github.io/</a>.
   </p>
 
-  <h3 id="benchmark">Data Overview</h3>
+  <h3 id="messykitchens-dataset">MessyKitchens Dataset</h3>
   <hr/>
-  <div class="row" style="text-align: center">
-    <div class="col-xs-12">
-      <img src="resrc/samples.png" alt="samples" class="text-center" style="width: 100%; max-width: 1100px" loading="lazy">
-    </div>
-  </div>
+  <h4 class="dataset-subtitle">Data Annotations</h4>
   <p>
-  <strong>Real scenes.</strong> We collect 100 real scenes with 130 kitchenware objects from 10 kitchens, scanned using an Einstar Vega 3D scanner. Objects are scanned on a transparent acrylic surface from above and below for complete geometry. Scenes are assembled with three difficulty levels: <strong>Easy</strong> (4 objects, minimal contact), <strong>Medium</strong> (6 objects, stacked configurations), and <strong>Hard</strong> (8 objects, nested and maximum contact). We carefully scan each setup with stable tracking and complete surface coverage, then process the scene meshes while preserving geometric fidelity with point-to-mesh error below <strong>0.05 mm</strong>.
+  <strong>Real-world captures.</strong> MessyKitchens contains cluttered kitchen scenes with rich contacts, stacking, and nesting patterns. Select any example below to switch the annotation image and its paired video together.
   </p>
-  <p>
-  <strong>Synthetic data.</strong> MessyKitchens-Synthetic uses GSO assets with 600 scenes per difficulty level, 6 views each (10,800 images total), rendered with Blender Cycles for photorealism. The synthetic scenes follow the same easy, medium, and hard setup as the real benchmark, with contact-rich stacked and nested object interactions for training.
-  </p>
-
-  <h3 id="data-quality">Data Quality</h3>
-  <hr/>
-  <div class="row" style="text-align: center; padding-left:1rem; padding-right:1rem; padding-bottom:1rem;">
-    <h4>Registration quality and contact realism across benchmarks. MessyKitchens achieves the best registration accuracy and the best penetration-to-contact ratio.</h4>
-  </div>
-  <div class="data-quality-grid">
-    <figure class="data-quality-panel">
-      <div class="data-quality-table-wrap">
-        <table class="registration-table">
-          <thead>
-            <tr>
-              <th>Dataset</th>
-              <th>Sensor</th>
-              <th>&mu;<sub>|&delta;|</sub></th>
-              <th>med<sub>|&delta;|</sub></th>
-              <th>&sigma;<sub>&delta;</sub></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td rowspan="2">T-LESS</td>
-              <td>Camarine</td>
-              <td>4.28</td>
-              <td>2.46</td>
-              <td>7.72</td>
-            </tr>
-            <tr>
-              <td>Kinect v2</td>
-              <td>8.40</td>
-              <td>5.45</td>
-              <td>11.36</td>
-            </tr>
-            <tr>
-              <td>LINEMOD</td>
-              <td>Kinect v2</td>
-              <td>5.89</td>
-              <td>5.57</td>
-              <td>1.47</td>
-            </tr>
-            <tr>
-              <td>YCB-Video</td>
-              <td>Xtion Pro Live</td>
-              <td>3.95</td>
-              <td>3.66</td>
-              <td>2.26</td>
-            </tr>
-            <tr>
-              <td>MP6D</td>
-              <td>Tuyang FM851-E2</td>
-              <td>3.54</td>
-              <td>2.70</td>
-              <td><strong>0.17</strong></td>
-            </tr>
-            <tr>
-              <td rowspan="2">GraspNet-1B</td>
-              <td>RealSense D435</td>
-              <td>7.69</td>
-              <td>4.95</td>
-              <td>14.30</td>
-            </tr>
-            <tr>
-              <td>Azure Kinect</td>
-              <td>14.79</td>
-              <td>9.54</td>
-              <td>20.20</td>
-            </tr>
-            <tr>
-              <td rowspan="4">GraspClutter6D</td>
-              <td>Zivid</td>
-              <td>3.22</td>
-              <td>1.55</td>
-              <td>11.10</td>
-            </tr>
-            <tr>
-              <td>RealSense D415</td>
-              <td>5.71</td>
-              <td>3.77</td>
-              <td>14.67</td>
-            </tr>
-            <tr>
-              <td>RealSense D435</td>
-              <td>7.02</td>
-              <td>4.58</td>
-              <td>13.82</td>
-            </tr>
-            <tr>
-              <td>Azure Kinect</td>
-              <td>13.85</td>
-              <td>6.83</td>
-              <td>32.59</td>
-            </tr>
-            <tr class="registration-table-highlight">
-              <td>MessyKitchens</td>
-              <td>Einstar Vega</td>
-              <td><strong>1.62</strong></td>
-              <td><strong>0.91</strong></td>
-              <td>3.83</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <figcaption>Registration accuracy across benchmarks, reported as depth errors in mm.</figcaption>
+  <div class="dataset-viewer-grid">
+    <figure class="dataset-viewer-card">
+      <div class="dataset-annotation-label">Real World</div>
+      <img
+        id="dataset-viewer-image"
+        src="data_annotations/real_world/demo1.jpg"
+        alt="MessyKitchens real-world annotation example"
+        class="dataset-annotation-media"
+        loading="lazy"
+      >
+      <figcaption id="dataset-viewer-caption">Annotated real-world MessyKitchens scene showing cluttered kitchen objects with contact-rich interactions.</figcaption>
     </figure>
-    <figure class="data-quality-panel">
-      <img src="resrc/penetration.png" alt="penetration" class="data-quality-image" loading="lazy">
-      <figcaption>Contacts and penetration. MessyKitchens achieves the best ratio of 0.14.</figcaption>
+    <figure class="dataset-viewer-card">
+      <div class="dataset-annotation-label">Video</div>
+      <video
+        id="dataset-viewer-video"
+        class="dataset-annotation-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        poster="data_annotations/real_world/demo1.jpg"
+      >
+        <source id="dataset-viewer-video-source" src="data_annotations/real_world/demo1.mp4" type="video/mp4">
+      </video>
+      <figcaption id="dataset-viewer-video-caption">Looping video companion for the same real-world MessyKitchens annotation example.</figcaption>
     </figure>
   </div>
-  <p>
-  <strong>Registration accuracy.</strong> Following prior benchmark evaluations, we measure the depth discrepancy between rendered registered objects and the ground-truth scene scan. MessyKitchens achieves a mean absolute depth error of <strong>1.62 mm</strong> and a median error of <strong>0.91 mm</strong>, corresponding to a <strong>49.7%</strong> improvement over the second-best benchmark in mean error and <strong>41.3%</strong> improvement in median error.
-  </p>
-  <p>
-  <strong>Contacts and penetrations.</strong> We compare datasets by jointly analyzing contact area and penetration area. MessyKitchens achieves the best penetration-to-contact ratio of <strong>0.14</strong>, while the medium and hard subsets remain similarly low at <strong>0.1533</strong> and <strong>0.1347</strong>. This shows that the dataset maintains physically accurate contacts even as scene complexity increases.
-  </p>
+  <div class="dataset-selector" aria-label="MessyKitchens dataset examples">
+    <button
+      type="button"
+      class="dataset-thumb is-active"
+      data-dataset-image="data_annotations/real_world/demo1.jpg"
+      data-dataset-video="data_annotations/real_world/demo1.mp4"
+      data-dataset-poster="data_annotations/real_world/demo1.jpg"
+      data-dataset-caption="Annotated real-world MessyKitchens scene showing cluttered kitchen objects with contact-rich interactions."
+      data-dataset-video-caption="Looping video companion for the same real-world MessyKitchens annotation example."
+    >
+      <img src="data_annotations/real_world/demo1.jpg" alt="Dataset example 1" loading="lazy">
+      <span>Scene 01</span>
+    </button>
+    <button
+      type="button"
+      class="dataset-thumb"
+      data-dataset-image="data_annotations/real_world/demo2.jpg"
+      data-dataset-video="data_annotations/real_world/demo2.mp4"
+      data-dataset-poster="data_annotations/real_world/demo2.jpg"
+      data-dataset-caption="Another real-world MessyKitchens capture with dense kitchenware arrangements and contact-rich object placements."
+      data-dataset-video-caption="Looping video pair for the second real-world MessyKitchens example."
+    >
+      <img src="data_annotations/real_world/demo2.jpg" alt="Dataset example 2" loading="lazy">
+      <span>Scene 02</span>
+    </button>
+    <button
+      type="button"
+      class="dataset-thumb"
+      data-dataset-image="data_annotations/real_world/demo3.png"
+      data-dataset-video="data_annotations/real_world/demo3.mp4"
+      data-dataset-poster="data_annotations/real_world/demo3.png"
+      data-dataset-caption="A third annotation example highlighting more complex object contact and support relationships in the real-world setup."
+      data-dataset-video-caption="Looping video pair for the third real-world MessyKitchens example."
+    >
+      <img src="data_annotations/real_world/demo3.png" alt="Dataset example 3" loading="lazy">
+      <span>Scene 03</span>
+    </button>
+  </div>
 
   <h3 id="iterative-demo">MOD vs SAM 3D</h3>
   <hr/>
