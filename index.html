@@ -52,14 +52,13 @@
   <div class="project-actions">
     <a class="status-chip status-chip-link" href="https://arxiv.org/abs/2603.16868" target="_blank" rel="noopener noreferrer">Paper</a>
     <span class="status-chip">Code · Coming Soon</span>
-    <a class="status-chip status-chip-link" href="#iterative-demo">Iterative Demos</a>
+    <a class="status-chip status-chip-link" href="#iterative-demo">Iterative Demos SAM 3D</a>
   </div>
   <div class="quick-links">
     <a href="#abstract">Abstract</a>
-    <a href="#benchmark">Benchmark</a>
+    <a href="#benchmark">Data Overview</a>
     <a href="#data-quality">Data Quality</a>
-    <a href="#qualitative-results">Qualitative</a>
-    <a href="#iterative-demo">Iterative Demos</a>
+    <a href="#iterative-demo">Iterative Demos SAM 3D</a>
     <a href="#conclusion">Conclusion</a>
   </div>
 </div>
@@ -83,16 +82,7 @@
   To validate our contributions, we demonstrate MessyKitchens to significantly improve previous datasets in registration accuracy and inter-object penetration. We also compare our multi-object reconstruction approach on three datasets and demonstrate consistent and significant improvements of MOD over the state of the art. Our new benchmark, code and pre-trained models will become publicly available on our project website: <a href="https://messykitchens.github.io/">https://messykitchens.github.io/</a>.
   </p>
 
-  <h3 id="introduction">Introduction</h3>
-  <hr/>
-  <p>
-  Accurate 3D scene reconstruction plays a pivotal role for many applications in digital arts, industrial inspection, heritage preservation, robot learning and simulation. While navigation may only require free space estimation, robotic manipulation and animation rely on detailed reconstruction of individual objects with physically-plausible contacts.
-  </p>
-  <p>
-  We advance object-level scene reconstruction on two fronts. <em>First</em>, we introduce <em>MessyKitchens</em>, a new benchmark with 100 real-world scenes featuring cluttered environments, 130 kitchen objects scanned with high precision, and accurate object contacts. We also provide MessyKitchens-Synthetic with 1.8k contact-rich scenes and 10.8k rendered images for training. <em>Second</em>, we propose Multi-Object Decoder (MOD), extending SAM 3D with joint object-level scene reconstruction that captures contextual relationships and enforces physically-plausible configurations.
-  </p>
-
-  <h3 id="benchmark">MessyKitchens Benchmark</h3>
+  <h3 id="benchmark">Data Overview</h3>
   <hr/>
   <div class="row" style="text-align: center">
     <div class="col-xs-12">
@@ -100,13 +90,13 @@
     </div>
   </div>
   <p>
-  <strong>Data acquisition.</strong> We collect 100 real scenes with 130 kitchenware objects from 10 kitchens, scanned using an Einstar Vega 3D scanner. Objects are scanned on a transparent acrylic surface from above and below for complete geometry. Scenes are assembled with three difficulty levels: <strong>Easy</strong> (4 objects, minimal contact), <strong>Medium</strong> (6 objects, stacked configurations), <strong>Hard</strong> (8 objects, nested and maximum contact). Our normals-aware registration pipeline achieves mean depth error of <strong>1.62 mm</strong> and median <strong>0.91 mm</strong>—49.7% improvement over the second-best benchmark.
+  <strong>Real scenes.</strong> We collect 100 real scenes with 130 kitchenware objects from 10 kitchens, scanned using an Einstar Vega 3D scanner. Objects are scanned on a transparent acrylic surface from above and below for complete geometry. Scenes are assembled with three difficulty levels: <strong>Easy</strong> (4 objects, minimal contact), <strong>Medium</strong> (6 objects, stacked configurations), and <strong>Hard</strong> (8 objects, nested and maximum contact). We carefully scan each setup with stable tracking and complete surface coverage, then process the scene meshes while preserving geometric fidelity with point-to-mesh error below <strong>0.05 mm</strong>.
   </p>
   <p>
-  <strong>Synthetic data.</strong> MessyKitchens-Synthetic uses GSO assets with 600 scenes per difficulty level, 6 views each (10,800 images total), rendered with Blender Cycles for photorealism.
+  <strong>Synthetic data.</strong> MessyKitchens-Synthetic uses GSO assets with 600 scenes per difficulty level, 6 views each (10,800 images total), rendered with Blender Cycles for photorealism. The synthetic scenes follow the same easy, medium, and hard setup as the real benchmark, with contact-rich stacked and nested object interactions for training.
   </p>
 
-  <h3 id="data-quality">Data Quality: Registration &amp; Physical Consistency</h3>
+  <h3 id="data-quality">Data Quality</h3>
   <hr/>
   <div class="row" style="text-align: center; padding-left:1rem; padding-right:1rem; padding-bottom:1rem;">
     <h4>Contacts vs. penetration across benchmarks. MessyKitchens achieves the best ratio (0.14), demonstrating physically-realistic contacts.</h4>
@@ -117,36 +107,13 @@
     </div>
   </div>
   <p>
-  <strong>Registration ablation.</strong> Our distance+normals registration considerably improves over distance-only. Manual: 4.69 mm mean error; Distance only: 2.89 mm; Distance+normals (Ours): <strong>1.62 mm</strong>.
+  <strong>Registration accuracy.</strong> Following prior benchmark evaluations, we measure the depth discrepancy between rendered registered objects and the ground-truth scene scan. MessyKitchens achieves a mean absolute depth error of <strong>1.62 mm</strong> and a median error of <strong>0.91 mm</strong>, corresponding to a <strong>49.7%</strong> improvement over the second-best benchmark in mean error and <strong>41.3%</strong> improvement in median error.
   </p>
-  <div class="row" style="text-align: center">
-    <div class="col-xs-6">
-      <img src="resrc/before.png" alt="before" class="text-center" style="width: 100%; max-width: 400px" loading="lazy">
-      <p><em>Distance only</em></p>
-    </div>
-    <div class="col-xs-6">
-      <img src="resrc/after.png" alt="after" class="text-center" style="width: 100%; max-width: 400px" loading="lazy">
-      <p><em>Distance+normals (Ours)</em></p>
-    </div>
-  </div>
-
-  <h3 id="qualitative-results">Qualitative Results</h3>
-  <hr/>
-  <div class="row" style="text-align: center; padding-bottom: 0.5rem;">
-    <div class="col-xs-12">
-      <h4><span class="highlight-text">MOD (Ours): Qualitative comparison on MessyKitchens</span></h4>
-    </div>
-  </div>
-  <div class="row" style="text-align: center">
-    <div class="col-xs-12">
-      <img src="resrc/qualitative.png" alt="qualitative" class="text-center" style="width: 100%; max-width: 1100px" loading="lazy">
-    </div>
-  </div>
   <p>
-  Qualitative comparison on MessyKitchens. <strong>MOD (Ours)</strong> refines pose and scale by enforcing scene-level geometric consistency. Gray surfaces denote ground truth. MOD correctly reconstructs objects in contact. The iterative demos below expose this refinement process through clickable input images.
+  <strong>Contacts and penetrations.</strong> We compare datasets by jointly analyzing contact area and penetration area. MessyKitchens achieves the best penetration-to-contact ratio of <strong>0.14</strong>, while the medium and hard subsets remain similarly low at <strong>0.1533</strong> and <strong>0.1347</strong>. This shows that the dataset maintains physically accurate contacts even as scene complexity increases.
   </p>
 
-  <h3 id="iterative-demo">Iterative Demos</h3>
+  <h3 id="iterative-demo">Iterative Demos SAM 3D</h3>
   <hr/>
   <p>
   Click an input image to open the corresponding <strong>SAM 3D → MOD</strong> transition. This gallery is intentionally compact so we can keep adding more scenes without making the page too long.
