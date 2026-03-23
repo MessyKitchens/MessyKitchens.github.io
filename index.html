@@ -157,10 +157,11 @@
   <h3 id="iterative-demo">MOD vs SAM 3D</h3>
   <hr/>
   <p>
-  Click an input image to open the corresponding <strong>SAM 3D → MOD</strong> transition. This gallery is intentionally compact so we can keep adding more scenes without making the page too long.
+  The comparison below keeps the image and the corresponding refinement video side by side. Click the left image to open the full <strong>SAM 3D → MOD</strong> transition with the extra reference views.
   </p>
-  <div class="iterative-gallery">
-    <article class="iterative-card">
+  <div class="comparison-viewer-grid">
+    <figure class="comparison-viewer-card">
+      <div class="dataset-annotation-label">Image</div>
       <button
         type="button"
         class="iterative-trigger"
@@ -173,22 +174,29 @@
         data-demo-mod="resrc/demos/iterative-mod.png"
         data-demo-gt="resrc/demos/iterative-gt.png"
       >
-        <span class="iterative-trigger-label">Click Input Image</span>
+        <span class="iterative-trigger-label">Open Full Comparison</span>
         <img src="resrc/demos/iterative-input.jpg" alt="Input image for iterative demo scene s10-again-3" loading="lazy">
       </button>
-      <div class="iterative-card-copy">
-        <span class="demo-kicker">MessyKitchens</span>
-        <h4>SAM 3D → MOD on <code>s10-again-3</code></h4>
-        <div class="demo-meta">
-          <span>24s</span>
-          <span>720 × 720</span>
-          <span>Click to open</span>
-        </div>
-      </div>
-    </article>
+      <figcaption>Input image for scene <code>s10-again-3</code>. Click to inspect the full SAM 3D to MOD comparison with additional rendered views.</figcaption>
+    </figure>
+    <figure class="comparison-viewer-card">
+      <div class="dataset-annotation-label">Video</div>
+      <video
+        class="comparison-inline-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        poster="resrc/demos/iterative-demo-poster.jpg"
+      >
+        <source src="resrc/demos/iterative-demo.mp4" type="video/mp4">
+      </video>
+      <figcaption>Looping refinement video showing the transition from SAM 3D initialization to the final MOD estimate in the shared viewpoint.</figcaption>
+    </figure>
   </div>
   <p class="demo-note">
-  Generated from our iterative transition visualization pipeline for MessyKitchens. Add more cards by duplicating one <code>.iterative-card</code> block and updating the data attributes.
+  Generated from our iterative transition visualization pipeline for MessyKitchens.
   </p>
 
   <h3 id="conclusion">Conclusions</h3>

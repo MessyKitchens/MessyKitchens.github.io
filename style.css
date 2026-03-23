@@ -17,16 +17,16 @@ body {
   margin: 0;
   color: var(--text);
   font-family: "Avenir Next", "Helvetica Neue", "Segoe UI", sans-serif;
-  font-size: 16px;
-  line-height: 1.75;
+  font-size: 19px;
+  line-height: 1.88;
   background: var(--bg);
 }
 
 .container {
   width: 100%;
-  max-width: 1140px;
-  padding-left: 24px;
-  padding-right: 24px;
+  max-width: 1520px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 h1,
@@ -37,23 +37,23 @@ h4 {
 }
 
 h1 {
-  margin: 0 0 0.35rem;
-  font-size: clamp(2.5rem, 5vw, 4.35rem);
+  margin: 0 0 0.55rem;
+  font-size: clamp(3.4rem, 5.8vw, 5.5rem);
   font-weight: 700;
-  line-height: 1.05;
+  line-height: 1.02;
 }
 
 h3 {
-  margin-top: 3.5rem;
-  margin-bottom: 0.4rem;
-  font-size: clamp(2rem, 3vw, 2.5rem);
+  margin-top: 4.8rem;
+  margin-bottom: 0.65rem;
+  font-size: clamp(2.45rem, 3.3vw, 3.2rem);
   font-weight: 700;
 }
 
 h4 {
   margin: 0;
-  font-size: clamp(1.2rem, 2vw, 1.45rem);
-  line-height: 1.5;
+  font-size: clamp(1.45rem, 2vw, 1.8rem);
+  line-height: 1.55;
 }
 
 a {
@@ -69,8 +69,8 @@ a:focus {
 }
 
 hr {
-  margin-top: 0.9rem;
-  margin-bottom: 1.5rem;
+  margin-top: 1.15rem;
+  margin-bottom: 2.35rem;
   border: 0;
   border-top: 2px solid var(--line);
 }
@@ -80,9 +80,10 @@ hr.new {
 }
 
 p {
-  margin-bottom: 1rem;
+  margin-bottom: 1.6rem;
   color: var(--muted);
-  font-size: 1.04rem;
+  font-size: 1.56rem;
+  line-height: 1.92;
   text-align: left;
 }
 
@@ -130,8 +131,8 @@ table {
 }
 
 .project-intro {
-  padding-top: 3rem !important;
-  padding-bottom: 1.5rem !important;
+  padding-top: 3.7rem !important;
+  padding-bottom: 2.7rem !important;
 }
 
 .project-intro .row {
@@ -140,7 +141,7 @@ table {
 }
 
 .project-intro h4 {
-  margin: 1rem 0 0.35rem;
+  margin: 1.35rem 0 0.6rem;
 }
 
 .author-name {
@@ -150,6 +151,7 @@ table {
 .subdued_text {
   color: var(--muted);
   margin: 0 1em 1em 0;
+  font-size: 1.12rem;
 }
 
 .project-actions,
@@ -163,11 +165,11 @@ table {
 }
 
 .project-actions {
-  margin-top: 1.5rem;
+  margin-top: 2.3rem;
 }
 
 .quick-links {
-  margin-top: 1rem;
+  margin-top: 1.55rem;
 }
 
 .status-chip,
@@ -176,14 +178,14 @@ table {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 42px;
-  padding: 0.65rem 1rem;
+  min-height: 50px;
+  padding: 0.85rem 1.2rem;
   border-radius: 999px;
   border: 1px solid var(--line);
   background: var(--surface);
   box-shadow: none;
   color: var(--text);
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   font-weight: 600;
 }
 
@@ -207,8 +209,8 @@ table {
 }
 
 .teaser-section {
-  padding-top: 0.5rem !important;
-  padding-bottom: 0.75rem !important;
+  padding-top: 1rem !important;
+  padding-bottom: 1.8rem !important;
 }
 
 .teaser-frame {
@@ -225,9 +227,11 @@ table {
 }
 
 .teaser-note {
-  max-width: 760px;
-  margin: 1rem auto 0;
+  max-width: 940px;
+  margin: 1.4rem auto 0;
   text-align: center;
+  font-size: 1.2rem;
+  line-height: 1.8;
 }
 
 .highlight-text {
@@ -252,7 +256,7 @@ table {
   border-radius: 999px;
   background: var(--accent-soft);
   color: var(--accent-strong);
-  font-size: 0.84rem;
+  font-size: 0.92rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -290,26 +294,128 @@ table {
 }
 
 .demo-shot figcaption {
-  padding: 0.9rem 1rem 1rem;
+  padding: 1rem 1.1rem 1.1rem;
   color: var(--text);
-  font-size: 0.97rem;
+  font-size: 1.08rem;
   font-weight: 600;
   text-align: left;
 }
 
-.iterative-gallery {
+.dataset-viewer-grid,
+.comparison-viewer-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-  margin-top: 1.35rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.8rem;
+  align-items: start;
+  margin-top: 1.75rem;
+  margin-bottom: 1.85rem;
 }
 
+.dataset-viewer-card,
+.comparison-viewer-card,
 .iterative-card {
   border: 1px solid rgba(33, 26, 22, 0.08);
-  border-radius: 22px;
+  border-radius: 24px;
   background: #fff;
   box-shadow: var(--shadow-soft);
   overflow: hidden;
+  padding: 1.3rem;
+}
+
+.dataset-subtitle {
+  margin-bottom: 1rem;
+  color: var(--accent-strong);
+  font-size: 1.12rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.dataset-annotation-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0.95rem;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.dataset-annotation-media,
+.dataset-annotation-video,
+.comparison-inline-video {
+  width: 100%;
+  border-radius: 20px;
+  object-fit: cover;
+  background: #0d0b0a;
+}
+
+.dataset-annotation-media {
+  aspect-ratio: 16 / 10;
+}
+
+.dataset-annotation-video,
+.comparison-inline-video {
+  aspect-ratio: 16 / 9;
+}
+
+.dataset-viewer-card figcaption,
+.comparison-viewer-card figcaption {
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: 1.12rem;
+  line-height: 1.75;
+}
+
+.dataset-selector {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.45rem;
+}
+
+.dataset-thumb {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.85rem;
+  padding: 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: var(--shadow-soft);
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dataset-thumb:hover,
+.dataset-thumb:focus {
+  transform: translateY(-1px);
+  border-color: rgba(182, 90, 61, 0.4);
+  box-shadow: var(--shadow);
+}
+
+.dataset-thumb.is-active {
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+}
+
+.dataset-thumb img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.dataset-thumb span {
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: left;
 }
 
 .iterative-trigger {
@@ -327,6 +433,7 @@ table {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+  border-radius: 18px;
 }
 
 .iterative-trigger-label {
@@ -336,13 +443,13 @@ table {
   z-index: 1;
   display: inline-flex;
   align-items: center;
-  min-height: 34px;
-  padding: 0.35rem 0.7rem;
+  min-height: 40px;
+  padding: 0.45rem 0.82rem;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.94);
   border: 1px solid rgba(33, 26, 22, 0.08);
   color: var(--text);
-  font-size: 0.78rem;
+  font-size: 0.88rem;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -353,21 +460,13 @@ table {
   filter: brightness(0.96);
 }
 
-.iterative-card-copy {
-  padding: 0.95rem 1rem 1rem;
-}
-
-.iterative-card-copy h4 {
-  margin-top: 0.6rem;
-  font-size: 1.08rem;
-}
-
 .demo-note {
-  margin-top: 1rem;
-  padding: 1rem 1.2rem;
+  margin-top: 1.4rem;
+  padding: 1.25rem 1.4rem;
   border-left: 4px solid var(--accent);
   border-radius: 14px;
   background: #fff;
+  font-size: 1.08rem;
 }
 
 .demo-modal {
@@ -426,6 +525,7 @@ table {
 
 .demo-modal-header p {
   margin-bottom: 0;
+  font-size: 1.08rem;
 }
 
 .demo-modal-video-wrap {
@@ -454,6 +554,7 @@ table {
 
 .demo-modal-linkline a {
   font-weight: 600;
+  font-size: 1.02rem;
 }
 
 .label-info {
@@ -474,7 +575,8 @@ table {
 }
 
 @media (max-width: 991px) {
-  .iterative-gallery {
+  .dataset-viewer-grid,
+  .comparison-viewer-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -483,14 +585,41 @@ table {
   }
 }
 
+@media (min-width: 1180px) {
+  .quick-links {
+    position: fixed;
+    left: 24px;
+    top: 210px;
+    z-index: 40;
+    width: 250px;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0.95rem;
+    margin-top: 0;
+    padding: 1.25rem;
+    border: 1px solid rgba(33, 26, 22, 0.08);
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(14px);
+    box-shadow: var(--shadow);
+  }
+
+  .quick-links a {
+    width: 100%;
+    justify-content: flex-start;
+    text-align: left;
+  }
+}
+
 @media (max-width: 767px) {
   body {
-    line-height: 1.65;
+    line-height: 1.72;
   }
 
   .container {
-    padding-left: 18px;
-    padding-right: 18px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   .project-intro {
@@ -508,11 +637,10 @@ table {
     border-radius: 18px;
   }
 
-  .quick-links {
-    justify-content: flex-start;
-  }
-
-  .iterative-gallery,
+  .quick-links,
+  .dataset-viewer-grid,
+  .comparison-viewer-grid,
+  .dataset-selector,
   .demo-modal-grid {
     grid-template-columns: 1fr;
   }
