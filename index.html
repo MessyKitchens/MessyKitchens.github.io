@@ -25,14 +25,14 @@
   <!--Style-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link href="style.css" rel="stylesheet">
+  <link href="style.css?v=20260323e" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 </head>
 <body>
 
-<div class="container project-intro" style="text-align:center; padding:2rem 15px">
+<div class="container page-column project-intro" style="text-align:center">
   <div class="row" style="text-align:center">
     <h1>MessyKitchens: Contact-rich Object-level</h1>
     <h1>3D Scene Reconstruction</h1>
@@ -57,23 +57,22 @@
     <a href="#abstract">Abstract</a>
     <a href="#messykitchens-dataset">MessyKitchens Dataset</a>
     <a href="#iterative-demo">MOD vs SAM 3D</a>
-    <a href="#conclusion">Conclusions</a>
   </div>
 </div>
 
-<div class="container teaser-section" style="text-align:center; padding:1rem">
+<div class="container page-column teaser-section" style="text-align:center">
   <div class="teaser-frame">
-    <img src="resrc/teaser.png" alt="teaser" class="text-center" style="width: 100%; max-width: 1100px">
+    <img src="resrc/teaser.png" alt="teaser" class="text-center" style="width: 100%">
   </div>
   <p class="teaser-note">
     Scene-level object reconstruction with explicit contact reasoning. Scroll down for compact MOD vs SAM 3D demos on MessyKitchens.
   </p>
 </div>
 
-<div class="container">
+<div class="container page-column content-shell">
   <h3 id="abstract">Abstract</h3>
   <hr/>
-  <p>
+  <p class="abstract-copy">
   Monocular 3D scene reconstruction has recently seen significant progress. Powered by modern neural architectures and large-scale data, recent methods achieve high performance in depth estimation from a single image. Meanwhile, reconstructing and decomposing common scenes into individual 3D objects remains a hard challenge due to the large variety of objects, frequent occlusions and complex object relations.
   Notably, beyond shape and pose estimation of individual objects, applications in robotics and animation require physically-plausible scene reconstruction where objects obey physical principles of non-penetration and realistic contacts.
   In this work we advance object-level scene reconstruction along two directions. First, we introduce <em>MessyKitchens</em>, a new dataset with real-world scenes featuring cluttered environments and providing high-fidelity object-level ground truth in terms of 3D object shapes, poses and accurate object contacts. Second, we build on the recent SAM 3D approach for single-object reconstruction and extend it with Multi-Object Decoder (MOD) for joint object-level scene reconstruction.
@@ -157,32 +156,23 @@
   <h3 id="iterative-demo">MOD vs SAM 3D</h3>
   <hr/>
   <p>
-  The comparison below keeps the image and the corresponding refinement video side by side. Click the left image to open the full <strong>SAM 3D → MOD</strong> transition with the extra reference views.
+  The comparison below keeps the input image and the corresponding refinement video side by side in a shared layout.
   </p>
   <div class="comparison-viewer-grid">
     <figure class="comparison-viewer-card">
       <div class="dataset-annotation-label">Image</div>
-      <button
-        type="button"
-        class="iterative-trigger"
-        data-demo-title="SAM 3D → MOD on scene s10-again-3"
-        data-demo-note="The reconstruction starts from the SAM 3D initialization and smoothly converges to the final MOD estimate while preserving the shared viewpoint."
-        data-demo-video="resrc/demos/iterative-demo.mp4"
-        data-demo-poster="resrc/demos/iterative-demo-poster.jpg"
-        data-demo-input="resrc/demos/iterative-input.jpg"
-        data-demo-sam3d="resrc/demos/iterative-sam3d.png"
-        data-demo-mod="resrc/demos/iterative-mod.png"
-        data-demo-gt="resrc/demos/iterative-gt.png"
+      <img
+        src="resrc/demos/iterative-input.jpg"
+        alt="Input image for iterative demo scene s10-again-3"
+        class="comparison-inline-media"
+        loading="lazy"
       >
-        <span class="iterative-trigger-label">Open Full Comparison</span>
-        <img src="resrc/demos/iterative-input.jpg" alt="Input image for iterative demo scene s10-again-3" loading="lazy">
-      </button>
-      <figcaption>Input image for scene <code>s10-again-3</code>. Click to inspect the full SAM 3D to MOD comparison with additional rendered views.</figcaption>
+      <figcaption>Input image for scene <code>s10-again-3</code>.</figcaption>
     </figure>
     <figure class="comparison-viewer-card">
       <div class="dataset-annotation-label">Video</div>
       <video
-        class="comparison-inline-video"
+        class="comparison-inline-media"
         autoplay
         muted
         loop
@@ -195,60 +185,16 @@
       <figcaption>Looping refinement video showing the transition from SAM 3D initialization to the final MOD estimate in the shared viewpoint.</figcaption>
     </figure>
   </div>
-  <p class="demo-note">
-  Generated from our iterative transition visualization pipeline for MessyKitchens.
-  </p>
 
-  <h3 id="conclusion">Conclusions</h3>
-  <hr/>
-  <p>
-  We introduced MessyKitchens, a benchmark with cluttered, contact-rich real-world scenes and high-fidelity 3D ground truth, and Multi-Object Decoder (MOD) for joint object-level scene reconstruction. Extensive experiments demonstrate that our approach significantly outperforms state-of-the-art on MessyKitchens, GraspNet-1B, and HouseCat6D, with strong out-of-distribution generalization. We believe MessyKitchens and MOD will provide a robust foundation for physics-consistent 3D computer vision.
-  </p>
 </div>
 
-<div class="container" style="padding-top:3rem; padding-bottom:3rem">
+<div class="container page-column content-shell" style="padding-top:3rem; padding-bottom:3rem">
   <p style="text-align:center">
   &#169; This webpage was in part inspired from this
   <a href="https://github.com/monniert/project-webpage">template</a>.
   </p>
 </div>
 
-<div class="demo-modal" hidden>
-  <div class="demo-modal-backdrop" data-demo-close></div>
-  <div class="demo-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="demo-modal-title">
-    <button type="button" class="demo-modal-close" aria-label="Close iterative demo" data-demo-close>&times;</button>
-    <div class="demo-modal-header">
-      <span class="demo-kicker">MOD vs SAM 3D</span>
-      <h4 id="demo-modal-title">SAM 3D → MOD</h4>
-      <p id="demo-modal-note"></p>
-    </div>
-    <div class="demo-modal-video-wrap">
-      <video id="demo-modal-video" class="demo-modal-video" controls muted loop playsinline preload="metadata"></video>
-    </div>
-    <div class="demo-modal-grid">
-      <figure class="demo-shot demo-shot-input">
-        <img id="demo-modal-input" src="" alt="Input image">
-        <figcaption>Input image</figcaption>
-      </figure>
-      <figure class="demo-shot">
-        <img id="demo-modal-sam3d" src="" alt="SAM 3D initialization">
-        <figcaption>SAM 3D initialization</figcaption>
-      </figure>
-      <figure class="demo-shot">
-        <img id="demo-modal-mod" src="" alt="MOD refinement">
-        <figcaption>MOD refinement</figcaption>
-      </figure>
-      <figure class="demo-shot">
-        <img id="demo-modal-gt" src="" alt="Ground truth reference">
-        <figcaption>Ground truth reference</figcaption>
-      </figure>
-    </div>
-    <p class="demo-modal-linkline">
-      <a id="demo-modal-link" href="" target="_blank" rel="noopener noreferrer">Open the MP4 directly</a>
-    </p>
-  </div>
-</div>
-
-<script src="script.js"></script>
+<script src="script.js?v=20260323e"></script>
 </body>
 </html>

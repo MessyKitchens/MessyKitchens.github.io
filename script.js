@@ -24,6 +24,41 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
+const quickLinkItems = Array.from(document.querySelectorAll('.quick-links a[href^="#"]'));
+const quickSections = quickLinkItems
+  .map(link => {
+    const target = document.querySelector(link.getAttribute('href'));
+    if (!target) return null;
+    return { link, target };
+  })
+  .filter(Boolean);
+
+const setActiveQuickLink = sectionId => {
+  quickSections.forEach(({ link, target }) => {
+    link.classList.toggle('is-active', target.id === sectionId);
+  });
+};
+
+if (quickSections.length) {
+  const updateActiveQuickLink = () => {
+    const offset = window.innerHeight * 0.26;
+    let activeId = quickSections[0].target.id;
+
+    quickSections.forEach(({ target }) => {
+      const top = target.getBoundingClientRect().top;
+      if (top <= offset) {
+        activeId = target.id;
+      }
+    });
+
+    setActiveQuickLink(activeId);
+  };
+
+  updateActiveQuickLink();
+  window.addEventListener('scroll', updateActiveQuickLink, { passive: true });
+  window.addEventListener('resize', updateActiveQuickLink);
+}
+
 const datasetViewerImage = document.querySelector('#dataset-viewer-image');
 const datasetViewerVideo = document.querySelector('#dataset-viewer-video');
 const datasetViewerVideoSource = document.querySelector('#dataset-viewer-video-source');
@@ -60,76 +95,4 @@ const updateDatasetViewer = trigger => {
 
 datasetThumbs.forEach(button => {
   button.addEventListener('click', () => updateDatasetViewer(button));
-});
-
-const demoModal = document.querySelector('.demo-modal');
-const demoModalVideo = document.querySelector('#demo-modal-video');
-const demoModalLink = document.querySelector('#demo-modal-link');
-const demoModalTitle = document.querySelector('#demo-modal-title');
-const demoModalNote = document.querySelector('#demo-modal-note');
-const demoModalInput = document.querySelector('#demo-modal-input');
-const demoModalSam3d = document.querySelector('#demo-modal-sam3d');
-const demoModalMod = document.querySelector('#demo-modal-mod');
-const demoModalGt = document.querySelector('#demo-modal-gt');
-
-const setImageSource = (element, src) => {
-  if (!element) return;
-  element.src = src || '';
-};
-
-const closeDemoModal = () => {
-  if (!demoModal) return;
-  demoModal.hidden = true;
-  document.body.style.overflow = '';
-  if (demoModalVideo) {
-    demoModalVideo.pause();
-    demoModalVideo.removeAttribute('src');
-    demoModalVideo.removeAttribute('poster');
-    demoModalVideo.load();
-  }
-};
-
-const openDemoModal = trigger => {
-  if (!demoModal || !trigger || !demoModalVideo) return;
-
-  const {
-    demoTitle,
-    demoNote,
-    demoVideo,
-    demoPoster,
-    demoInput,
-    demoSam3d,
-    demoMod,
-    demoGt,
-  } = trigger.dataset;
-
-  demoModalTitle.textContent = demoTitle || 'Iterative Demo';
-  demoModalNote.textContent = demoNote || '';
-  demoModalVideo.src = demoVideo || '';
-  demoModalVideo.poster = demoPoster || '';
-  demoModalLink.href = demoVideo || '#';
-
-  setImageSource(demoModalInput, demoInput);
-  setImageSource(demoModalSam3d, demoSam3d);
-  setImageSource(demoModalMod, demoMod);
-  setImageSource(demoModalGt, demoGt);
-
-  demoModal.hidden = false;
-  document.body.style.overflow = 'hidden';
-  demoModalVideo.load();
-  demoModalVideo.play().catch(() => {});
-};
-
-document.querySelectorAll('.iterative-trigger').forEach(trigger => {
-  trigger.addEventListener('click', () => openDemoModal(trigger));
-});
-
-document.querySelectorAll('[data-demo-close]').forEach(closeButton => {
-  closeButton.addEventListener('click', closeDemoModal);
-});
-
-document.addEventListener('keydown', event => {
-  if (event.key === 'Escape' && demoModal && !demoModal.hidden) {
-    closeDemoModal();
-  }
 });

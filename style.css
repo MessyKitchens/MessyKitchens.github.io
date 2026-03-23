@@ -18,15 +18,19 @@ body {
   color: var(--text);
   font-family: "Avenir Next", "Helvetica Neue", "Segoe UI", sans-serif;
   font-size: 19px;
-  line-height: 1.88;
+  line-height: 1.78;
   background: var(--bg);
 }
 
 .container {
   width: 100%;
-  max-width: 1520px;
-  padding-left: 30px;
-  padding-right: 30px;
+  max-width: 1760px;
+  padding-left: 38px;
+  padding-right: 38px;
+}
+
+.page-column {
+  box-sizing: border-box;
 }
 
 h1,
@@ -37,23 +41,23 @@ h4 {
 }
 
 h1 {
-  margin: 0 0 0.55rem;
-  font-size: clamp(3.4rem, 5.8vw, 5.5rem);
+  margin: 0 0 0.3rem;
+  font-size: clamp(2.75rem, 5vw, 4.7rem);
   font-weight: 700;
-  line-height: 1.02;
+  line-height: 1.06;
 }
 
 h3 {
-  margin-top: 4.8rem;
-  margin-bottom: 0.65rem;
-  font-size: clamp(2.45rem, 3.3vw, 3.2rem);
+  margin-top: 3.2rem;
+  margin-bottom: 0.35rem;
+  font-size: clamp(2rem, 2.8vw, 2.6rem);
   font-weight: 700;
 }
 
 h4 {
   margin: 0;
-  font-size: clamp(1.45rem, 2vw, 1.8rem);
-  line-height: 1.55;
+  font-size: clamp(1.24rem, 1.75vw, 1.52rem);
+  line-height: 1.48;
 }
 
 a {
@@ -69,8 +73,8 @@ a:focus {
 }
 
 hr {
-  margin-top: 1.15rem;
-  margin-bottom: 2.35rem;
+  margin-top: 0.8rem;
+  margin-bottom: 1.55rem;
   border: 0;
   border-top: 2px solid var(--line);
 }
@@ -80,11 +84,16 @@ hr.new {
 }
 
 p {
-  margin-bottom: 1.6rem;
+  margin-bottom: 1.1rem;
   color: var(--muted);
-  font-size: 1.56rem;
-  line-height: 1.92;
+  font-size: 1.34rem;
+  line-height: 1.78;
   text-align: left;
+}
+
+.abstract-copy {
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 strong,
@@ -131,8 +140,8 @@ table {
 }
 
 .project-intro {
-  padding-top: 3.7rem !important;
-  padding-bottom: 2.7rem !important;
+  padding-top: 1.6rem !important;
+  padding-bottom: 1.2rem !important;
 }
 
 .project-intro .row {
@@ -141,7 +150,9 @@ table {
 }
 
 .project-intro h4 {
-  margin: 1.35rem 0 0.6rem;
+  margin: 0.95rem 0 0.4rem;
+  font-size: 1.3rem;
+  line-height: 1.56;
 }
 
 .author-name {
@@ -151,7 +162,7 @@ table {
 .subdued_text {
   color: var(--muted);
   margin: 0 1em 1em 0;
-  font-size: 1.12rem;
+  font-size: 1rem;
 }
 
 .project-actions,
@@ -161,15 +172,15 @@ table {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem;
+  gap: 0.55rem;
 }
 
 .project-actions {
-  margin-top: 2.3rem;
+  margin-top: 1rem;
 }
 
 .quick-links {
-  margin-top: 1.55rem;
+  margin-top: 1rem;
 }
 
 .status-chip,
@@ -178,15 +189,22 @@ table {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 50px;
-  padding: 0.85rem 1.2rem;
+  min-height: 44px;
+  padding: 0.7rem 1.05rem;
   border-radius: 999px;
   border: 1px solid var(--line);
   background: var(--surface);
   box-shadow: none;
   color: var(--text);
-  font-size: 1.05rem;
+  font-size: 0.98rem;
   font-weight: 600;
+}
+
+.project-actions .status-chip {
+  min-height: 54px;
+  padding: 0.88rem 1.35rem;
+  font-size: 1.08rem;
+  font-weight: 700;
 }
 
 .status-chip-link {
@@ -209,14 +227,16 @@ table {
 }
 
 .teaser-section {
-  padding-top: 1rem !important;
-  padding-bottom: 1.8rem !important;
+  padding-top: 0.35rem !important;
+  padding-bottom: 0.8rem !important;
 }
 
 .teaser-frame {
-  padding: 1rem;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0.8rem;
   border: 1px solid rgba(33, 26, 22, 0.08);
-  border-radius: 28px;
+  border-radius: 24px;
   background: #fff;
   box-shadow: var(--shadow);
 }
@@ -228,10 +248,10 @@ table {
 
 .teaser-note {
   max-width: 940px;
-  margin: 1.4rem auto 0;
+  margin: 0.7rem auto 0;
   text-align: center;
-  font-size: 1.2rem;
-  line-height: 1.8;
+  font-size: 1.02rem;
+  line-height: 1.58;
 }
 
 .highlight-text {
@@ -305,27 +325,29 @@ table {
 .comparison-viewer-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.8rem;
-  align-items: start;
-  margin-top: 1.75rem;
-  margin-bottom: 1.85rem;
+  gap: 1.35rem;
+  align-items: stretch;
+  margin-top: 1.1rem;
+  margin-bottom: 1.15rem;
 }
 
 .dataset-viewer-card,
-.comparison-viewer-card,
-.iterative-card {
+.comparison-viewer-card {
   border: 1px solid rgba(33, 26, 22, 0.08);
   border-radius: 24px;
   background: #fff;
   box-shadow: var(--shadow-soft);
   overflow: hidden;
-  padding: 1.3rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .dataset-subtitle {
-  margin-bottom: 1rem;
+  margin-bottom: 0.65rem;
   color: var(--accent-strong);
-  font-size: 1.12rem;
+  font-size: 0.96rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -335,12 +357,12 @@ table {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1rem;
-  padding: 0.5rem 0.95rem;
+  margin-bottom: 0.7rem;
+  padding: 0.4rem 0.72rem;
   border-radius: 999px;
   background: var(--accent-soft);
   color: var(--accent-strong);
-  font-size: 0.92rem;
+  font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -348,43 +370,40 @@ table {
 
 .dataset-annotation-media,
 .dataset-annotation-video,
-.comparison-inline-video {
+.comparison-inline-media {
   width: 100%;
   border-radius: 20px;
   object-fit: cover;
   background: #0d0b0a;
 }
 
-.dataset-annotation-media {
-  aspect-ratio: 16 / 10;
-}
-
+.dataset-annotation-media,
 .dataset-annotation-video,
-.comparison-inline-video {
-  aspect-ratio: 16 / 9;
+.comparison-inline-media {
+  aspect-ratio: 4 / 3;
 }
 
 .dataset-viewer-card figcaption,
 .comparison-viewer-card figcaption {
-  margin-top: 1rem;
+  margin-top: 0.7rem;
   color: var(--muted);
-  font-size: 1.12rem;
-  line-height: 1.75;
+  font-size: 0.98rem;
+  line-height: 1.52;
 }
 
 .dataset-selector {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-  margin-top: 1.45rem;
+  gap: 0.8rem;
+  margin-top: 1rem;
 }
 
 .dataset-thumb {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  gap: 0.85rem;
-  padding: 0.9rem;
+  gap: 0.55rem;
+  padding: 0.7rem;
   border: 1px solid var(--line);
   border-radius: 20px;
   background: #fff;
@@ -413,148 +432,9 @@ table {
 }
 
 .dataset-thumb span {
-  font-size: 1rem;
+  font-size: 0.92rem;
   font-weight: 700;
   text-align: left;
-}
-
-.iterative-trigger {
-  display: block;
-  width: 100%;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  cursor: pointer;
-  text-align: left;
-  position: relative;
-}
-
-.iterative-trigger img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  border-radius: 18px;
-}
-
-.iterative-trigger-label {
-  position: absolute;
-  top: 0.85rem;
-  right: 0.85rem;
-  z-index: 1;
-  display: inline-flex;
-  align-items: center;
-  min-height: 40px;
-  padding: 0.45rem 0.82rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.94);
-  border: 1px solid rgba(33, 26, 22, 0.08);
-  color: var(--text);
-  font-size: 0.88rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.iterative-trigger:hover img,
-.iterative-trigger:focus img {
-  filter: brightness(0.96);
-}
-
-.demo-note {
-  margin-top: 1.4rem;
-  padding: 1.25rem 1.4rem;
-  border-left: 4px solid var(--accent);
-  border-radius: 14px;
-  background: #fff;
-  font-size: 1.08rem;
-}
-
-.demo-modal {
-  position: fixed;
-  inset: 0;
-  z-index: 2000;
-}
-
-.demo-modal[hidden] {
-  display: none;
-}
-
-.demo-modal-backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(17, 13, 10, 0.56);
-}
-
-.demo-modal-dialog {
-  position: relative;
-  z-index: 1;
-  width: min(1100px, calc(100vw - 32px));
-  max-height: calc(100vh - 32px);
-  margin: 16px auto;
-  overflow: auto;
-  padding: 1.25rem;
-  border-radius: 26px;
-  background: #fff;
-  box-shadow: 0 24px 48px rgba(17, 13, 10, 0.22);
-}
-
-.demo-modal-close {
-  position: absolute;
-  top: 0.85rem;
-  right: 0.85rem;
-  width: 42px;
-  height: 42px;
-  border: 1px solid rgba(33, 26, 22, 0.1);
-  border-radius: 999px;
-  background: #fff;
-  color: var(--text);
-  font-size: 1.8rem;
-  line-height: 1;
-  cursor: pointer;
-}
-
-.demo-modal-header {
-  max-width: 720px;
-  padding-right: 3.5rem;
-}
-
-.demo-modal-header h4 {
-  margin-top: 0.7rem;
-  margin-bottom: 0.55rem;
-}
-
-.demo-modal-header p {
-  margin-bottom: 0;
-  font-size: 1.08rem;
-}
-
-.demo-modal-video-wrap {
-  margin-top: 1rem;
-}
-
-.demo-modal-video {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border-radius: 20px;
-  background: #0d0b0a;
-}
-
-.demo-modal-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.85rem;
-  margin-top: 1rem;
-}
-
-.demo-modal-linkline {
-  margin-top: 0.9rem;
-  margin-bottom: 0.2rem;
-}
-
-.demo-modal-linkline a {
-  font-weight: 600;
-  font-size: 1.02rem;
 }
 
 .label-info {
@@ -575,29 +455,63 @@ table {
 }
 
 @media (max-width: 991px) {
-  .dataset-viewer-grid,
-  .comparison-viewer-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  p {
+    font-size: 1.18rem;
+    line-height: 1.68;
   }
 
-  .demo-modal-grid {
+  .project-intro h4 {
+    font-size: 1.15rem;
+    line-height: 1.5;
+  }
+
+  .teaser-note,
+  .dataset-viewer-card figcaption,
+  .comparison-viewer-card figcaption {
+    font-size: 0.94rem;
+  }
+
+  .dataset-viewer-grid,
+  .comparison-viewer-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (min-width: 1180px) {
+  .container {
+    padding-left: 38px;
+    padding-right: 38px;
+  }
+
+  .page-column {
+    width: min(1040px, calc(100vw - 120px));
+    max-width: none;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .teaser-frame {
+    max-width: none;
+  }
+}
+
+@media (min-width: 1400px) {
   .quick-links {
     position: fixed;
-    left: 24px;
-    top: 210px;
+    left: max(16px, calc(50vw - 690px));
+    top: 20px;
     z-index: 40;
-    width: 250px;
+    width: 150px;
     flex-direction: column;
     align-items: stretch;
     justify-content: flex-start;
-    gap: 0.95rem;
+    gap: 0.65rem;
     margin-top: 0;
-    padding: 1.25rem;
+    padding: 0.85rem;
+    max-height: calc(100vh - 48px);
+    overflow-y: auto;
     border: 1px solid rgba(33, 26, 22, 0.08);
     border-radius: 24px;
     background: rgba(255, 255, 255, 0.95);
@@ -612,9 +526,55 @@ table {
   }
 }
 
+@media (min-width: 1180px) and (max-width: 1439px) {
+  .quick-links {
+    justify-content: center;
+  }
+}
+
+.quick-links a.is-active {
+  background: var(--accent);
+  border-color: transparent;
+  color: #ffffff;
+  box-shadow: var(--shadow);
+}
+
+.quick-links a.is-active:hover,
+.quick-links a.is-active:focus {
+  color: #ffffff;
+  background: var(--accent-strong);
+}
+
+#abstract,
+#messykitchens-dataset,
+#iterative-demo {
+  scroll-margin-top: 28px;
+}
+
 @media (max-width: 767px) {
   body {
-    line-height: 1.72;
+    font-size: 17px;
+    line-height: 1.66;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.64;
+  }
+
+  .project-intro h4 {
+    font-size: 1.05rem;
+    line-height: 1.46;
+  }
+
+  .subdued_text,
+  .status-chip,
+  .quick-links a,
+  .dataset-thumb span,
+  .dataset-viewer-card figcaption,
+  .comparison-viewer-card figcaption,
+  .teaser-note {
+    font-size: 0.9rem;
   }
 
   .container {
@@ -623,34 +583,28 @@ table {
   }
 
   .project-intro {
-    padding-top: 2.2rem !important;
+    padding-top: 1.4rem !important;
   }
 
   .teaser-frame {
-    padding: 0.6rem;
-    border-radius: 22px;
+    padding: 0.45rem;
+    border-radius: 18px;
   }
 
   img.text-center,
-  .demo-modal-video,
-  .demo-shot {
+  .comparison-inline-media {
     border-radius: 18px;
   }
 
   .quick-links,
   .dataset-viewer-grid,
   .comparison-viewer-grid,
-  .dataset-selector,
-  .demo-modal-grid {
+  .dataset-selector {
     grid-template-columns: 1fr;
   }
 
-  .demo-modal-dialog {
-    width: min(100vw - 20px, 1100px);
-    max-height: calc(100vh - 20px);
-    margin: 10px auto;
-    padding: 1rem;
-    border-radius: 20px;
+  .quick-links {
+    justify-content: flex-start;
   }
 
   .col-xs-6 {
