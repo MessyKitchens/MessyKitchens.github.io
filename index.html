@@ -52,14 +52,14 @@
   <div class="project-actions">
     <span class="status-chip">Paper · Coming Soon</span>
     <span class="status-chip">Code · Coming Soon</span>
-    <a class="status-chip status-chip-link" href="#iterative-demo">Iterative Demo</a>
+    <a class="status-chip status-chip-link" href="#iterative-demo">Iterative Demos</a>
   </div>
   <div class="quick-links">
     <a href="#abstract">Abstract</a>
     <a href="#benchmark">Benchmark</a>
     <a href="#data-quality">Data Quality</a>
     <a href="#qualitative-results">Qualitative</a>
-    <a href="#iterative-demo">Iterative Demo</a>
+    <a href="#iterative-demo">Iterative Demos</a>
     <a href="#conclusion">Conclusion</a>
   </div>
 </div>
@@ -69,7 +69,7 @@
     <img src="resrc/teaser.png" alt="teaser" class="text-center" style="width: 100%; max-width: 1100px">
   </div>
   <p class="teaser-note">
-    Scene-level object reconstruction with explicit contact reasoning. Scroll down for an iterative SAM 3D → MOD transition demo on MessyKitchens.
+    Scene-level object reconstruction with explicit contact reasoning. Scroll down for compact iterative demos on MessyKitchens.
   </p>
 </div>
 
@@ -143,55 +143,44 @@
     </div>
   </div>
   <p>
-  Qualitative comparison on MessyKitchens. <strong>MOD (Ours)</strong> refines pose and scale by enforcing scene-level geometric consistency. Gray surfaces denote ground truth. MOD correctly reconstructs objects in contact. The iterative transition below shows this refinement process in motion on a representative scene.
+  Qualitative comparison on MessyKitchens. <strong>MOD (Ours)</strong> refines pose and scale by enforcing scene-level geometric consistency. Gray surfaces denote ground truth. MOD correctly reconstructs objects in contact. The iterative demos below expose this refinement process through clickable input images.
   </p>
 
-  <h3 id="iterative-demo">Iterative Demo</h3>
+  <h3 id="iterative-demo">Iterative Demos</h3>
   <hr/>
   <p>
-  We additionally visualize how the reconstruction evolves from <strong>SAM 3D</strong> to <strong>MOD</strong> on a MessyKitchens scene. The animation is rendered from our transition visualizer and highlights how scene-level reasoning progressively improves object placement, contact plausibility, and consistency with the final scene layout.
+  Click an input image to open the corresponding <strong>SAM 3D → MOD</strong> transition. This gallery is intentionally compact so we can keep adding more scenes without making the page too long.
   </p>
-  <div class="demo-card">
-    <div class="demo-copy">
-      <span class="demo-kicker">Transition Demo</span>
-      <h4>SAM 3D → MOD on scene <code>s10-again-3</code></h4>
-      <p>
-      This demo makes the iterative refinement easier to read than a static panel: the geometry starts from the SAM 3D reconstruction and smoothly converges toward the final MOD estimate while preserving the shared viewpoint.
-      </p>
-      <div class="demo-meta">
-        <span>24s video</span>
-        <span>720 × 720</span>
-        <span>Loopable MP4</span>
+  <div class="iterative-gallery">
+    <article class="iterative-card">
+      <button
+        type="button"
+        class="iterative-trigger"
+        data-demo-title="SAM 3D → MOD on scene s10-again-3"
+        data-demo-note="The reconstruction starts from the SAM 3D initialization and smoothly converges to the final MOD estimate while preserving the shared viewpoint."
+        data-demo-video="resrc/demos/iterative-demo.mp4"
+        data-demo-poster="resrc/demos/iterative-demo-poster.jpg"
+        data-demo-input="resrc/demos/iterative-input.jpg"
+        data-demo-sam3d="resrc/demos/iterative-sam3d.png"
+        data-demo-mod="resrc/demos/iterative-mod.png"
+        data-demo-gt="resrc/demos/iterative-gt.png"
+      >
+        <span class="iterative-trigger-label">Click Input Image</span>
+        <img src="resrc/demos/iterative-input.jpg" alt="Input image for iterative demo scene s10-again-3" loading="lazy">
+      </button>
+      <div class="iterative-card-copy">
+        <span class="demo-kicker">MessyKitchens</span>
+        <h4>SAM 3D → MOD on <code>s10-again-3</code></h4>
+        <div class="demo-meta">
+          <span>24s</span>
+          <span>720 × 720</span>
+          <span>Click to open</span>
+        </div>
       </div>
-      <a class="demo-link" href="resrc/demos/iterative-demo.mp4">Open the MP4 directly</a>
-    </div>
-    <div class="demo-player">
-      <video class="demo-video" controls autoplay muted loop playsinline preload="metadata" poster="resrc/demos/iterative-demo-poster.jpg">
-        <source src="resrc/demos/iterative-demo.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-    </div>
-  </div>
-  <div class="demo-grid">
-    <figure class="demo-shot demo-shot-input">
-      <img src="resrc/demos/iterative-input.jpg" alt="Input image for the iterative demo" loading="lazy">
-      <figcaption>Input image</figcaption>
-    </figure>
-    <figure class="demo-shot">
-      <img src="resrc/demos/iterative-sam3d.png" alt="SAM 3D reconstruction for the iterative demo scene" loading="lazy">
-      <figcaption>SAM 3D initialization</figcaption>
-    </figure>
-    <figure class="demo-shot">
-      <img src="resrc/demos/iterative-mod.png" alt="MOD reconstruction for the iterative demo scene" loading="lazy">
-      <figcaption>MOD refinement</figcaption>
-    </figure>
-    <figure class="demo-shot">
-      <img src="resrc/demos/iterative-gt.png" alt="Ground-truth geometry for the iterative demo scene" loading="lazy">
-      <figcaption>Ground truth reference</figcaption>
-    </figure>
+    </article>
   </div>
   <p class="demo-note">
-  Generated from our iterative transition visualization pipeline for MessyKitchens, showing how contact-aware reconstruction improves the final multi-object scene.
+  Generated from our iterative transition visualization pipeline for MessyKitchens. Add more cards by duplicating one <code>.iterative-card</code> block and updating the data attributes.
   </p>
 
   <h3 id="conclusion">Conclusion</h3>
@@ -208,5 +197,42 @@
   </p>
 </div>
 
+<div class="demo-modal" hidden>
+  <div class="demo-modal-backdrop" data-demo-close></div>
+  <div class="demo-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="demo-modal-title">
+    <button type="button" class="demo-modal-close" aria-label="Close iterative demo" data-demo-close>&times;</button>
+    <div class="demo-modal-header">
+      <span class="demo-kicker">Iterative Demo</span>
+      <h4 id="demo-modal-title">SAM 3D → MOD</h4>
+      <p id="demo-modal-note"></p>
+    </div>
+    <div class="demo-modal-video-wrap">
+      <video id="demo-modal-video" class="demo-modal-video" controls muted loop playsinline preload="metadata"></video>
+    </div>
+    <div class="demo-modal-grid">
+      <figure class="demo-shot demo-shot-input">
+        <img id="demo-modal-input" src="" alt="Input image">
+        <figcaption>Input image</figcaption>
+      </figure>
+      <figure class="demo-shot">
+        <img id="demo-modal-sam3d" src="" alt="SAM 3D initialization">
+        <figcaption>SAM 3D initialization</figcaption>
+      </figure>
+      <figure class="demo-shot">
+        <img id="demo-modal-mod" src="" alt="MOD refinement">
+        <figcaption>MOD refinement</figcaption>
+      </figure>
+      <figure class="demo-shot">
+        <img id="demo-modal-gt" src="" alt="Ground truth reference">
+        <figcaption>Ground truth reference</figcaption>
+      </figure>
+    </div>
+    <p class="demo-modal-linkline">
+      <a id="demo-modal-link" href="" target="_blank" rel="noopener noreferrer">Open the MP4 directly</a>
+    </p>
+  </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
