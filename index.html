@@ -52,13 +52,13 @@
   <div class="project-actions">
     <a class="status-chip status-chip-link" href="https://arxiv.org/abs/2603.16868" target="_blank" rel="noopener noreferrer">Paper</a>
     <span class="status-chip">Code · Coming Soon</span>
-    <a class="status-chip status-chip-link" href="#iterative-demo">Iterative Demos SAM 3D</a>
+    <a class="status-chip status-chip-link" href="#iterative-demo">MOD vs SAM 3D</a>
   </div>
   <div class="quick-links">
     <a href="#abstract">Abstract</a>
     <a href="#benchmark">Data Overview</a>
     <a href="#data-quality">Data Quality</a>
-    <a href="#iterative-demo">Iterative Demos SAM 3D</a>
+    <a href="#iterative-demo">MOD vs SAM 3D</a>
     <a href="#conclusion">Conclusion</a>
   </div>
 </div>
@@ -68,7 +68,7 @@
     <img src="resrc/teaser.png" alt="teaser" class="text-center" style="width: 100%; max-width: 1100px">
   </div>
   <p class="teaser-note">
-    Scene-level object reconstruction with explicit contact reasoning. Scroll down for compact iterative demos on MessyKitchens.
+    Scene-level object reconstruction with explicit contact reasoning. Scroll down for compact MOD vs SAM 3D demos on MessyKitchens.
   </p>
 </div>
 
@@ -99,12 +99,110 @@
   <h3 id="data-quality">Data Quality</h3>
   <hr/>
   <div class="row" style="text-align: center; padding-left:1rem; padding-right:1rem; padding-bottom:1rem;">
-    <h4>Contacts vs. penetration across benchmarks. MessyKitchens achieves the best ratio (0.14), demonstrating physically-realistic contacts.</h4>
+    <h4>Registration quality and contact realism across benchmarks. MessyKitchens achieves the best registration accuracy and the best penetration-to-contact ratio.</h4>
   </div>
-  <div class="row" style="text-align: center">
-    <div class="col-xs-12">
-      <img src="resrc/penetration.png" alt="penetration" class="text-center" style="width: 100%; max-width: 500px" loading="lazy">
-    </div>
+  <div class="data-quality-grid">
+    <figure class="data-quality-panel">
+      <div class="data-quality-table-wrap">
+        <table class="registration-table">
+          <thead>
+            <tr>
+              <th>Dataset</th>
+              <th>Sensor</th>
+              <th>&mu;<sub>|&delta;|</sub></th>
+              <th>med<sub>|&delta;|</sub></th>
+              <th>&sigma;<sub>&delta;</sub></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="2">T-LESS</td>
+              <td>Camarine</td>
+              <td>4.28</td>
+              <td>2.46</td>
+              <td>7.72</td>
+            </tr>
+            <tr>
+              <td>Kinect v2</td>
+              <td>8.40</td>
+              <td>5.45</td>
+              <td>11.36</td>
+            </tr>
+            <tr>
+              <td>LINEMOD</td>
+              <td>Kinect v2</td>
+              <td>5.89</td>
+              <td>5.57</td>
+              <td>1.47</td>
+            </tr>
+            <tr>
+              <td>YCB-Video</td>
+              <td>Xtion Pro Live</td>
+              <td>3.95</td>
+              <td>3.66</td>
+              <td>2.26</td>
+            </tr>
+            <tr>
+              <td>MP6D</td>
+              <td>Tuyang FM851-E2</td>
+              <td>3.54</td>
+              <td>2.70</td>
+              <td><strong>0.17</strong></td>
+            </tr>
+            <tr>
+              <td rowspan="2">GraspNet-1B</td>
+              <td>RealSense D435</td>
+              <td>7.69</td>
+              <td>4.95</td>
+              <td>14.30</td>
+            </tr>
+            <tr>
+              <td>Azure Kinect</td>
+              <td>14.79</td>
+              <td>9.54</td>
+              <td>20.20</td>
+            </tr>
+            <tr>
+              <td rowspan="4">GraspClutter6D</td>
+              <td>Zivid</td>
+              <td>3.22</td>
+              <td>1.55</td>
+              <td>11.10</td>
+            </tr>
+            <tr>
+              <td>RealSense D415</td>
+              <td>5.71</td>
+              <td>3.77</td>
+              <td>14.67</td>
+            </tr>
+            <tr>
+              <td>RealSense D435</td>
+              <td>7.02</td>
+              <td>4.58</td>
+              <td>13.82</td>
+            </tr>
+            <tr>
+              <td>Azure Kinect</td>
+              <td>13.85</td>
+              <td>6.83</td>
+              <td>32.59</td>
+            </tr>
+            <tr class="registration-table-highlight">
+              <td>MessyKitchens</td>
+              <td>Einstar Vega</td>
+              <td><strong>1.62</strong></td>
+              <td><strong>0.91</strong></td>
+              <td>3.83</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <figcaption>Registration accuracy across benchmarks, reported as depth errors in mm.</figcaption>
+    </figure>
+    <figure class="data-quality-panel">
+      <img src="resrc/penetration.png" alt="penetration" class="data-quality-image" loading="lazy">
+      <figcaption>Contacts and penetration. MessyKitchens achieves the best ratio of 0.14.</figcaption>
+    </figure>
   </div>
   <p>
   <strong>Registration accuracy.</strong> Following prior benchmark evaluations, we measure the depth discrepancy between rendered registered objects and the ground-truth scene scan. MessyKitchens achieves a mean absolute depth error of <strong>1.62 mm</strong> and a median error of <strong>0.91 mm</strong>, corresponding to a <strong>49.7%</strong> improvement over the second-best benchmark in mean error and <strong>41.3%</strong> improvement in median error.
@@ -113,7 +211,7 @@
   <strong>Contacts and penetrations.</strong> We compare datasets by jointly analyzing contact area and penetration area. MessyKitchens achieves the best penetration-to-contact ratio of <strong>0.14</strong>, while the medium and hard subsets remain similarly low at <strong>0.1533</strong> and <strong>0.1347</strong>. This shows that the dataset maintains physically accurate contacts even as scene complexity increases.
   </p>
 
-  <h3 id="iterative-demo">Iterative Demos SAM 3D</h3>
+  <h3 id="iterative-demo">MOD vs SAM 3D</h3>
   <hr/>
   <p>
   Click an input image to open the corresponding <strong>SAM 3D → MOD</strong> transition. This gallery is intentionally compact so we can keep adding more scenes without making the page too long.
@@ -169,7 +267,7 @@
   <div class="demo-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="demo-modal-title">
     <button type="button" class="demo-modal-close" aria-label="Close iterative demo" data-demo-close>&times;</button>
     <div class="demo-modal-header">
-      <span class="demo-kicker">Iterative Demo</span>
+      <span class="demo-kicker">MOD vs SAM 3D</span>
       <h4 id="demo-modal-title">SAM 3D → MOD</h4>
       <p id="demo-modal-note"></p>
     </div>
