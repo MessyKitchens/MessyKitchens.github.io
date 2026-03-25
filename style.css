@@ -43,15 +43,17 @@ h4 {
 h1 {
   margin: 0 0 0.3rem;
   font-size: clamp(2.75rem, 5vw, 4.7rem);
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1.06;
+  text-align: center;
 }
 
 h3 {
   margin-top: 3.2rem;
   margin-bottom: 0.35rem;
   font-size: clamp(2rem, 2.8vw, 2.6rem);
-  font-weight: 700;
+  font-weight: 500;
+  text-align: center;
 }
 
 h4 {
@@ -85,9 +87,9 @@ hr.new {
 
 p {
   margin-bottom: 1.1rem;
-  color: var(--muted);
-  font-size: 1.34rem;
-  line-height: 1.78;
+  color: var(--text);
+  font-size: 1.46rem;
+  line-height: 1.82;
   text-align: left;
 }
 
@@ -140,7 +142,7 @@ table {
 }
 
 .project-intro {
-  padding-top: 1.6rem !important;
+  padding-top: 3.55rem !important;
   padding-bottom: 1.2rem !important;
 }
 
@@ -149,10 +151,15 @@ table {
   margin-right: 0;
 }
 
+.project-title-block {
+  width: min(910px, 100%);
+  margin: 0 auto;
+}
+
 .project-intro h4 {
   margin: 0.95rem 0 0.4rem;
-  font-size: 1.3rem;
-  line-height: 1.56;
+  font-size: 1.84rem;
+  line-height: 1.62;
 }
 
 .author-name {
@@ -160,15 +167,15 @@ table {
 }
 
 .subdued_text {
-  color: var(--muted);
+  color: var(--text);
   margin: 0 1em 1em 0;
   font-size: 1rem;
 }
 
 .project-affiliation {
   color: var(--text);
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: 1.68rem;
+  line-height: 1.72;
 }
 
 .equal-note {
@@ -176,14 +183,14 @@ table {
   align-items: center;
   justify-content: center;
   gap: 0.2rem;
-  margin-top: 0.55rem;
-  padding: 0.34rem 0.72rem;
-  border-radius: 999px;
-  background: var(--accent-soft);
-  color: var(--accent-strong);
-  font-size: 0.96rem;
-  font-weight: 700;
-  line-height: 1.2;
+  margin-top: 0.65rem;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--text);
+  font-size: 1.68rem;
+  font-weight: 400;
+  line-height: 1.72;
 }
 
 .project-actions,
@@ -222,22 +229,24 @@ table {
 }
 
 .project-actions .status-chip {
-  min-height: 54px;
-  padding: 0.88rem 1.35rem;
-  font-size: 1.08rem;
-  font-weight: 700;
+  min-height: 68px;
+  padding: 1.08rem 1.8rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+  background: var(--accent-soft);
+  border-color: rgba(182, 90, 61, 0.18);
 }
 
 .status-chip-link {
-  border-color: transparent;
-  background: var(--accent);
-  color: #fff;
+  border-color: rgba(182, 90, 61, 0.18);
+  background: var(--accent-soft);
+  color: var(--text);
 }
 
 .status-chip-link:hover,
 .status-chip-link:focus {
-  color: #fff;
-  background: var(--accent-strong);
+  color: var(--text);
+  background: rgba(182, 90, 61, 0.18);
 }
 
 .quick-links a:hover,
@@ -271,8 +280,31 @@ table {
   max-width: 940px;
   margin: 0.7rem auto 0;
   text-align: center;
-  font-size: 1.02rem;
-  line-height: 1.58;
+  font-size: 1.14rem;
+  line-height: 1.62;
+}
+
+.video-section {
+  padding-top: 0.35rem !important;
+  padding-bottom: 0.95rem !important;
+}
+
+.video-section h3 {
+  text-align: center;
+}
+
+.video-frame {
+  padding: 0.8rem;
+  border: 1px solid rgba(33, 26, 22, 0.08);
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+
+.feature-video {
+  width: 100%;
+  border-radius: 18px;
+  background: #000;
 }
 
 .highlight-text {
@@ -367,24 +399,27 @@ table {
 
 .dataset-subtitle {
   margin-bottom: 0.65rem;
-  color: var(--accent-strong);
+  color: var(--text);
   font-size: 0.96rem;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  text-align: center;
 }
 
 .dataset-annotation-label {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  align-self: flex-start;
+  min-width: 78px;
   margin-bottom: 0.7rem;
   padding: 0.4rem 0.72rem;
   border-radius: 999px;
   background: var(--accent-soft);
-  color: var(--accent-strong);
-  font-size: 0.82rem;
-  font-weight: 700;
+  color: var(--text);
+  font-size: 0.96rem;
+  font-weight: 500;
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
@@ -392,24 +427,22 @@ table {
 .dataset-annotation-media,
 .dataset-annotation-video,
 .comparison-inline-media {
-  width: 100%;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 20px;
-  object-fit: cover;
-  background: #0d0b0a;
-}
-
-.dataset-annotation-media,
-.dataset-annotation-video,
-.comparison-inline-media {
+  object-fit: contain;
+  object-position: center;
+  background: #ffffff;
   aspect-ratio: 4 / 3;
 }
 
 .dataset-viewer-card figcaption,
 .comparison-viewer-card figcaption {
   margin-top: 0.7rem;
-  color: var(--muted);
-  font-size: 0.98rem;
-  line-height: 1.52;
+  color: var(--text);
+  font-size: 1.22rem;
+  line-height: 1.66;
 }
 
 .dataset-selector {
@@ -419,7 +452,12 @@ table {
   margin-top: 1rem;
 }
 
-.dataset-thumb {
+.comparison-selector {
+  margin-top: 1.1rem;
+}
+
+.dataset-thumb,
+.comparison-thumb {
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -434,18 +472,22 @@ table {
 }
 
 .dataset-thumb:hover,
-.dataset-thumb:focus {
+.dataset-thumb:focus,
+.comparison-thumb:hover,
+.comparison-thumb:focus {
   transform: translateY(-1px);
   border-color: rgba(182, 90, 61, 0.4);
   box-shadow: var(--shadow);
 }
 
-.dataset-thumb.is-active {
+.dataset-thumb.is-active,
+.comparison-thumb.is-active {
   border-color: var(--accent);
   box-shadow: var(--shadow);
 }
 
-.dataset-thumb img {
+.dataset-thumb img,
+.comparison-thumb img {
   width: 100%;
   aspect-ratio: 16 / 10;
   object-fit: cover;
@@ -453,8 +495,8 @@ table {
 }
 
 .dataset-thumb span {
-  font-size: 0.92rem;
-  font-weight: 700;
+  font-size: 1.14rem;
+  font-weight: 400;
   text-align: left;
 }
 
@@ -477,19 +519,19 @@ table {
 
 @media (max-width: 991px) {
   p {
-    font-size: 1.18rem;
-    line-height: 1.68;
+    font-size: 1.28rem;
+    line-height: 1.72;
   }
 
   .project-intro h4 {
-    font-size: 1.15rem;
+    font-size: 1.22rem;
     line-height: 1.5;
   }
 
   .teaser-note,
   .dataset-viewer-card figcaption,
   .comparison-viewer-card figcaption {
-    font-size: 0.94rem;
+    font-size: 1rem;
   }
 
   .dataset-viewer-grid,
@@ -506,7 +548,7 @@ table {
   }
 
   .page-column {
-    width: min(1040px, calc(100vw - 120px));
+    width: min(1092px, calc(100vw - 120px));
     max-width: none;
     margin-left: auto;
     margin-right: auto;
@@ -516,41 +558,6 @@ table {
 
   .teaser-frame {
     max-width: none;
-  }
-}
-
-@media (min-width: 1400px) {
-  .quick-links {
-    position: fixed;
-    left: max(16px, calc(50vw - 690px));
-    top: 20px;
-    z-index: 40;
-    width: 150px;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: flex-start;
-    gap: 0.65rem;
-    margin-top: 0;
-    padding: 0.85rem;
-    max-height: calc(100vh - 48px);
-    overflow-y: auto;
-    border: 1px solid rgba(33, 26, 22, 0.08);
-    border-radius: 24px;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(14px);
-    box-shadow: var(--shadow);
-  }
-
-  .quick-links a {
-    width: 100%;
-    justify-content: flex-start;
-    text-align: left;
-  }
-}
-
-@media (min-width: 1180px) and (max-width: 1439px) {
-  .quick-links {
-    justify-content: center;
   }
 }
 
@@ -580,13 +587,13 @@ table {
   }
 
   p {
-    font-size: 1rem;
-    line-height: 1.64;
+    font-size: 1.08rem;
+    line-height: 1.68;
   }
 
   .project-intro h4 {
-    font-size: 1.05rem;
-    line-height: 1.46;
+    font-size: 1.12rem;
+    line-height: 1.48;
   }
 
   .subdued_text,
@@ -597,7 +604,7 @@ table {
   .dataset-viewer-card figcaption,
   .comparison-viewer-card figcaption,
   .teaser-note {
-    font-size: 0.9rem;
+    font-size: 0.98rem;
   }
 
   .container {
@@ -606,7 +613,7 @@ table {
   }
 
   .project-intro {
-    padding-top: 1.4rem !important;
+    padding-top: 2.4rem !important;
   }
 
   .teaser-frame {
@@ -615,6 +622,7 @@ table {
   }
 
   img.text-center,
+  .feature-video,
   .comparison-inline-media {
     border-radius: 18px;
   }

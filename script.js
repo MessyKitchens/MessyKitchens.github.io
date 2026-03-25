@@ -64,7 +64,11 @@ const datasetViewerVideo = document.querySelector('#dataset-viewer-video');
 const datasetViewerVideoSource = document.querySelector('#dataset-viewer-video-source');
 const datasetViewerCaption = document.querySelector('#dataset-viewer-caption');
 const datasetViewerVideoCaption = document.querySelector('#dataset-viewer-video-caption');
-const datasetThumbs = Array.from(document.querySelectorAll('.dataset-thumb'));
+const datasetThumbs = Array.from(document.querySelectorAll('.dataset-selector .dataset-thumb'));
+const comparisonViewerImage = document.querySelector('#comparison-viewer-image');
+const comparisonViewerVideo = document.querySelector('#comparison-viewer-video');
+const comparisonViewerVideoSource = document.querySelector('#comparison-viewer-video-source');
+const comparisonThumbs = Array.from(document.querySelectorAll('.comparison-thumb'));
 
 const updateDatasetViewer = trigger => {
   if (!trigger || !datasetViewerImage || !datasetViewerVideo || !datasetViewerVideoSource) {
@@ -80,9 +84,13 @@ const updateDatasetViewer = trigger => {
   } = trigger.dataset;
 
   datasetViewerImage.src = datasetImage || '';
-  datasetViewerImage.alt = trigger.textContent.trim() || 'MessyKitchens dataset example';
-  datasetViewerCaption.textContent = datasetCaption || '';
-  datasetViewerVideoCaption.textContent = datasetVideoCaption || '';
+  datasetViewerImage.alt = trigger.querySelector('img')?.alt || trigger.getAttribute('aria-label') || 'MessyKitchens dataset example';
+  if (datasetViewerCaption) {
+    datasetViewerCaption.textContent = datasetCaption || '';
+  }
+  if (datasetViewerVideoCaption) {
+    datasetViewerVideoCaption.textContent = datasetVideoCaption || '';
+  }
   datasetViewerVideo.poster = datasetPoster || datasetImage || '';
   datasetViewerVideoSource.src = datasetVideo || '';
   datasetViewerVideo.load();
@@ -95,4 +103,31 @@ const updateDatasetViewer = trigger => {
 
 datasetThumbs.forEach(button => {
   button.addEventListener('click', () => updateDatasetViewer(button));
+});
+
+const updateComparisonViewer = trigger => {
+  if (!trigger || !comparisonViewerImage || !comparisonViewerVideo || !comparisonViewerVideoSource) {
+    return;
+  }
+
+  const {
+    comparisonImage,
+    comparisonVideo,
+    comparisonPoster,
+  } = trigger.dataset;
+
+  comparisonViewerImage.src = comparisonImage || '';
+  comparisonViewerImage.alt = trigger.querySelector('img')?.alt || trigger.getAttribute('aria-label') || 'MOD vs SAM 3D demo';
+  comparisonViewerVideo.poster = comparisonPoster || comparisonImage || '';
+  comparisonViewerVideoSource.src = comparisonVideo || '';
+  comparisonViewerVideo.load();
+  comparisonViewerVideo.play().catch(() => {});
+
+  comparisonThumbs.forEach(button => {
+    button.classList.toggle('is-active', button === trigger);
+  });
+};
+
+comparisonThumbs.forEach(button => {
+  button.addEventListener('click', () => updateComparisonViewer(button));
 });

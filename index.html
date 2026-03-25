@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <title>MessyKitchens</title>
-  <meta name="description" content="Project page for MessyKitchens: Contact-rich Object-level 3D Scene Reconstruction">
+  <meta name="description" content="Project page for MessyKitchens: Contact-rich Object-level 3D Scene Reconstructions">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
   <meta charset="utf-8">
 
@@ -14,18 +14,18 @@
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://randing2000.github.io/MessyKitchens.github.io/"/>
   <meta property="og:title" content="MessyKitchens"/>
-  <meta property="og:description" content="Project page for MessyKitchens: Contact-rich Object-level 3D Scene Reconstruction."/>
+  <meta property="og:description" content="Project page for MessyKitchens: Contact-rich Object-level 3D Scene Reconstructions."/>
 
   <!--Twitter preview-->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="MessyKitchens" />
-  <meta name="twitter:description" content="Project page for MessyKitchens: Contact-rich Object-level 3D Scene Reconstruction."/>
+  <meta name="twitter:description" content="Project page for MessyKitchens: Contact-rich Object-level 3D Scene Reconstructions."/>
   <meta name="twitter:image" content="https://randing2000.github.io/MessyKitchens.github.io/resrc/teaser.png">
 
   <!--Style-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link href="style.css?v=20260324d" rel="stylesheet">
+  <link href="style.css?v=20260325z" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
@@ -34,14 +34,16 @@
 
 <div class="container page-column project-intro" style="text-align:center">
   <div class="row" style="text-align:center">
-    <h1>MessyKitchens: Contact-rich Object-level</h1>
-    <h1>3D Scene Reconstruction</h1>
+    <div class="project-title-block">
+      <h1>MessyKitchens: Contact-rich Object-level</h1>
+      <h1>3D Scene Reconstructions</h1>
+    </div>
   </div>
   <div class="row" style="text-align:center">
     <div class="col-xs-12 col-md-10 col-md-offset-1">
       <h4>
-        <a href="https://junaidcs032.github.io/"><span class="author-name">Junaid Ahmed Ansari</span><sup>1,*</sup></a> &emsp;
-        <a href="https://randing2000.github.io/"><span class="author-name">Ran Ding</span><sup>1,*</sup></a> &emsp;
+        <a href="https://junaidcs032.github.io/"><span class="author-name">Junaid Ahmed Ansari</span><sup>1*</sup></a> &emsp;
+        <a href="https://randing2000.github.io/"><span class="author-name">Ran Ding</span><sup>1*</sup></a> &emsp;
         <a href="https://mbzuai.ac.ae/study/faculty/fabio-pizzati/"><span class="author-name">Fabio Pizzati</span><sup>1</sup></a> &emsp;
         <a href="https://mbzuai.ac.ae/study/faculty/ivan-laptev/"><span class="author-name">Ivan Laptev</span><sup>1</sup></a>
       </h4>
@@ -53,10 +55,13 @@
     <a class="status-chip status-chip-link" href="https://arxiv.org/abs/2603.16868" target="_blank" rel="noopener noreferrer">Paper</a>
     <span class="status-chip">Code · Coming Soon</span>
   </div>
-  <div class="quick-links">
-    <a href="#abstract">Abstract</a>
-    <a href="#messykitchens-dataset">MessyKitchens Dataset</a>
-    <a href="#iterative-demo">MOD vs SAM 3D</a>
+</div>
+
+<div class="container page-column video-section" style="text-align:center">
+  <div class="video-frame">
+    <video class="feature-video" controls playsinline preload="metadata">
+      <source src="resrc/messykitchens_present.mp4" type="video/mp4">
+    </video>
   </div>
 </div>
 
@@ -64,9 +69,6 @@
   <div class="teaser-frame">
     <img src="resrc/teaser.png" alt="teaser" class="text-center" style="width: 100%">
   </div>
-  <p class="teaser-note">
-    Scene-level object reconstruction with explicit contact reasoning. Scroll down for compact MOD vs SAM 3D demos on MessyKitchens.
-  </p>
 </div>
 
 <div class="container page-column content-shell">
@@ -76,26 +78,24 @@
   Monocular 3D scene reconstruction has recently seen significant progress. Powered by modern neural architectures and large-scale data, recent methods achieve high performance in depth estimation from a single image. Meanwhile, reconstructing and decomposing common scenes into individual 3D objects remains a hard challenge due to the large variety of objects, frequent occlusions and complex object relations.
   Notably, beyond shape and pose estimation of individual objects, applications in robotics and animation require physically-plausible scene reconstruction where objects obey physical principles of non-penetration and realistic contacts.
   In this work we advance object-level scene reconstruction along two directions. First, we introduce <em>MessyKitchens</em>, a new dataset with real-world scenes featuring cluttered environments and providing high-fidelity object-level ground truth in terms of 3D object shapes, poses and accurate object contacts. Second, we build on the recent SAM 3D approach for single-object reconstruction and extend it with Multi-Object Decoder (MOD) for joint object-level scene reconstruction.
-  To validate our contributions, we demonstrate MessyKitchens to significantly improve previous datasets in registration accuracy and inter-object penetration. We also compare our multi-object reconstruction approach on three datasets and demonstrate consistent and significant improvements of MOD over the state of the art. Our new benchmark, code and pre-trained models will become publicly available on our project website: <a href="https://messykitchens.github.io/">https://messykitchens.github.io/</a>.
+  To validate our contributions, we demonstrate MessyKitchens to significantly improve previous datasets in registration accuracy and inter-object penetration. We also compare our multi-object reconstruction approach on three datasets and demonstrate consistent and significant improvements of MOD over the state of the art.
   </p>
 
-  <h3 id="messykitchens-dataset">MessyKitchens Dataset</h3>
+  <h3 id="messykitchens-dataset">Dataset</h3>
   <hr/>
-  <h4 class="dataset-subtitle">Data Annotations</h4>
   <p>
-  <strong>Real-world captures.</strong> MessyKitchens contains cluttered kitchen scenes with rich contacts, stacking, and nesting patterns. Select any example below to switch the annotation image and its paired video together.
+  MessyKitchens contains cluttered kitchen scenes with rich contacts, stacking, and nesting patterns. Select any example below to switch the annotation image and its paired video together.
   </p>
   <div class="dataset-viewer-grid">
     <figure class="dataset-viewer-card">
-      <div class="dataset-annotation-label">Real World</div>
+      <div class="dataset-annotation-label">Image</div>
       <img
         id="dataset-viewer-image"
-        src="data_annotations/real_world/demo1.jpg"
+        src="data_annotations/real_world/demo1.png?v=20260325v"
         alt="MessyKitchens real-world annotation example"
         class="dataset-annotation-media"
         loading="lazy"
       >
-      <figcaption id="dataset-viewer-caption">Annotated real-world MessyKitchens scene showing cluttered kitchen objects with contact-rich interactions.</figcaption>
     </figure>
     <figure class="dataset-viewer-card">
       <div class="dataset-annotation-label">Video</div>
@@ -107,83 +107,108 @@
         loop
         playsinline
         preload="metadata"
-        poster="data_annotations/real_world/demo1.jpg"
+        poster="data_annotations/real_world/demo1.png?v=20260325v"
       >
         <source id="dataset-viewer-video-source" src="data_annotations/real_world/demo1.mp4" type="video/mp4">
       </video>
-      <figcaption id="dataset-viewer-video-caption">Looping video companion for the same real-world MessyKitchens annotation example.</figcaption>
     </figure>
   </div>
   <div class="dataset-selector" aria-label="MessyKitchens dataset examples">
     <button
       type="button"
       class="dataset-thumb is-active"
-      data-dataset-image="data_annotations/real_world/demo1.jpg"
+      aria-label="Scene 01"
+      data-dataset-image="data_annotations/real_world/demo1.png?v=20260325v"
       data-dataset-video="data_annotations/real_world/demo1.mp4"
-      data-dataset-poster="data_annotations/real_world/demo1.jpg"
-      data-dataset-caption="Annotated real-world MessyKitchens scene showing cluttered kitchen objects with contact-rich interactions."
-      data-dataset-video-caption="Looping video companion for the same real-world MessyKitchens annotation example."
+      data-dataset-poster="data_annotations/real_world/demo1.png?v=20260325v"
     >
-      <img src="data_annotations/real_world/demo1.jpg" alt="Dataset example 1" loading="lazy">
-      <span>Scene 01</span>
+      <img src="data_annotations/real_world/demo1.png?v=20260325v" alt="Dataset example 1" loading="lazy">
     </button>
     <button
       type="button"
       class="dataset-thumb"
-      data-dataset-image="data_annotations/real_world/demo2.jpg"
+      aria-label="Scene 02"
+      data-dataset-image="data_annotations/real_world/demo2.png?v=20260325v"
       data-dataset-video="data_annotations/real_world/demo2.mp4"
-      data-dataset-poster="data_annotations/real_world/demo2.jpg"
-      data-dataset-caption="Another real-world MessyKitchens capture with dense kitchenware arrangements and contact-rich object placements."
-      data-dataset-video-caption="Looping video pair for the second real-world MessyKitchens example."
+      data-dataset-poster="data_annotations/real_world/demo2.png?v=20260325v"
     >
-      <img src="data_annotations/real_world/demo2.jpg" alt="Dataset example 2" loading="lazy">
-      <span>Scene 02</span>
+      <img src="data_annotations/real_world/demo2.png?v=20260325v" alt="Dataset example 2" loading="lazy">
     </button>
     <button
       type="button"
       class="dataset-thumb"
-      data-dataset-image="data_annotations/real_world/demo3.png"
+      aria-label="Scene 03"
+      data-dataset-image="data_annotations/real_world/demo3.png?v=20260325v"
       data-dataset-video="data_annotations/real_world/demo3.mp4"
-      data-dataset-poster="data_annotations/real_world/demo3.png"
-      data-dataset-caption="A third annotation example highlighting more complex object contact and support relationships in the real-world setup."
-      data-dataset-video-caption="Looping video pair for the third real-world MessyKitchens example."
+      data-dataset-poster="data_annotations/real_world/demo3.png?v=20260325v"
     >
-      <img src="data_annotations/real_world/demo3.png" alt="Dataset example 3" loading="lazy">
-      <span>Scene 03</span>
+      <img src="data_annotations/real_world/demo3.png?v=20260325v" alt="Dataset example 3" loading="lazy">
     </button>
   </div>
 
   <h3 id="iterative-demo">MOD vs SAM 3D</h3>
   <hr/>
   <p>
-  The comparison below keeps the input image and the corresponding refinement video side by side in a shared layout.
+  Select any example below to switch the input image and the paired MOD refinement video together.
   </p>
   <div class="comparison-viewer-grid">
     <figure class="comparison-viewer-card">
       <div class="dataset-annotation-label">Image</div>
       <img
-        src="resrc/demos/iterative-input.jpg"
-        alt="Input image for iterative demo scene s10-again-3"
+        id="comparison-viewer-image"
+        src="resrc/demos/iterative-input.jpg?v=20260325z"
+        alt="Input image for MOD vs SAM 3D demo 1"
         class="comparison-inline-media"
         loading="lazy"
       >
-      <figcaption>Input image for scene <code>s10-again-3</code>.</figcaption>
     </figure>
     <figure class="comparison-viewer-card">
       <div class="dataset-annotation-label">Video</div>
       <video
+        id="comparison-viewer-video"
         class="comparison-inline-media"
         autoplay
         muted
         loop
         playsinline
         preload="metadata"
-        poster="resrc/demos/iterative-demo-poster.jpg"
+        poster="resrc/demos/iterative-demo-poster.jpg?v=20260325z"
       >
-        <source src="resrc/demos/iterative-demo.mp4" type="video/mp4">
+        <source id="comparison-viewer-video-source" src="resrc/demos/iterative-demo.mp4" type="video/mp4">
       </video>
-      <figcaption>Looping refinement video showing the transition from SAM 3D initialization to the final MOD estimate in the shared viewpoint.</figcaption>
     </figure>
+  </div>
+  <div class="dataset-selector comparison-selector" aria-label="MOD vs SAM 3D demos">
+    <button
+      type="button"
+      class="comparison-thumb is-active"
+      aria-label="MOD vs SAM 3D demo 1"
+      data-comparison-image="resrc/demos/iterative-input.jpg?v=20260325z"
+      data-comparison-video="resrc/demos/iterative-demo.mp4"
+      data-comparison-poster="resrc/demos/iterative-demo-poster.jpg?v=20260325z"
+    >
+      <img src="resrc/demos/iterative-input.jpg?v=20260325z" alt="MOD vs SAM 3D demo 1" loading="lazy">
+    </button>
+    <button
+      type="button"
+      class="comparison-thumb"
+      aria-label="MOD vs SAM 3D demo 2"
+      data-comparison-image="resrc/demos/mod-demo2.png?v=20260325z"
+      data-comparison-video="resrc/demos/mod-demo2.mp4"
+      data-comparison-poster="resrc/demos/mod-demo2.png?v=20260325z"
+    >
+      <img src="resrc/demos/mod-demo2.png?v=20260325z" alt="MOD vs SAM 3D demo 2" loading="lazy">
+    </button>
+    <button
+      type="button"
+      class="comparison-thumb"
+      aria-label="MOD vs SAM 3D demo 3"
+      data-comparison-image="resrc/demos/mod-demo3.png?v=20260325z"
+      data-comparison-video="resrc/demos/mod-demo3.mp4"
+      data-comparison-poster="resrc/demos/mod-demo3.png?v=20260325z"
+    >
+      <img src="resrc/demos/mod-demo3.png?v=20260325z" alt="MOD vs SAM 3D demo 3" loading="lazy">
+    </button>
   </div>
 
 </div>
@@ -195,6 +220,6 @@
   </p>
 </div>
 
-<script src="script.js?v=20260324d"></script>
+<script src="script.js?v=20260325z"></script>
 </body>
 </html>
