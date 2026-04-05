@@ -1,0 +1,4 @@
+voice=am_liam
+speed=1.12
+language=a
+notes=continuous version + acronym normalization for more natural speech

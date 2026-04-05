@@ -1,0 +1,21 @@
+slide-01-messykitchens-introduction: MessyKitchens Introduction
+slide-02-real-world-dataset-overview-slides-2-3: Real-World Dataset Overview (Slides 2-3)
+slide-04-messykitchens-real-scenes: MessyKitchens Real Scenes
+slide-05-object-scans: Object Scans
+slide-06-dataset-creation-pipeline: Dataset Creation Pipeline
+slide-07-object-scanning: Object Scanning
+slide-08-after-object-scanning: After Object Scanning
+slide-09-scene-scanning: Scene Scanning
+slide-10-scene-mesh-processing: Scene Mesh Processing
+slide-11-manual-alignment: Manual Alignment
+slide-12-initial-transformations: Initial Transformations
+slide-13-stage-one-registration-slides-13-14: Stage One Registration (Slides 13-14)
+slide-15-stage-two-registration-slides-15-16: Stage Two Registration (Slides 15-16)
+slide-17-final-scene-ground-truth: Final Scene Ground Truth
+slide-18-why-two-stages: Why Two Stages
+slide-19-scene-image-capture: Scene Image Capture
+slide-20-multi-view-capture: Multi-View Capture
+slide-21-real-examples-slides-21-23: Real Examples (Slides 21-23)
+slide-24-synthetic-dataset-motivation-slides-24-25: Synthetic Dataset Motivation (Slides 24-25)
+slide-26-synthetic-dataset-scale: Synthetic Dataset Scale
+slide-27-synthetic-examples-slides-27-29: Synthetic Examples (Slides 27-29)

@@ -1,0 +1,17 @@
+01 - Slide T1 Introduction
+MessyKitchens. Contact-rich object-level 3D scene reconstruction. In this work, we focus on improving object-level scene reconstruction in complex real-world environments.
+
+02 - Slide T2-T3 Reconstruction Challenges
+Monocular 3D scene reconstruction has seen significant progress. However, reconstructing complex scenes as individual objects remains challenging because of object diversity, occlusions, and complex interactions. Importantly, many applications require physically plausible reconstructions, where objects do not intersect and exhibit realistic contacts.
+
+03 - Slide T4-T6 Limitations of Recent Approaches
+Recent approaches remain limited because they reconstruct objects in isolation, ignoring spatial dependencies and leading to globally incoherent scenes. Without joint reasoning, they often produce physically implausible results, including inter-penetrating geometry and floating artifacts in cluttered scenes.
+
+04 - Method Introduction: Multi-Object Decoder (MOD)
+Next, we'll introduce our method, the Multi-Object Decoder, or MOD. We model the scene jointly instead of reconstructing objects independently, which better captures object relationships and contacts, leading to more consistent and physically plausible results.
+
+05 - Conclusion
+To conclude, we introduce MessyKitchens, a new benchmark with realistic, contact-rich 3D scenes. It enables more reliable evaluation of physically plausible reconstruction, especially for accurate object contacts. We also propose MOD, which brings scene-level reasoning into multi-object reconstruction. As a result, our method produces more consistent layouts, more accurate contacts, and stronger generalization to challenging real-world scenes.
+
+06 - Optional Ending: Conclusion With Thanks
+To conclude, we introduce MessyKitchens, a new benchmark with realistic, contact-rich 3D scenes. It enables more reliable evaluation of physically plausible reconstruction, especially for accurate object contacts. We also propose MOD, which brings scene-level reasoning into multi-object reconstruction. As a result, our method produces more consistent layouts, more accurate contacts, and stronger generalization to challenging real-world scenes. Thank you for your attention.

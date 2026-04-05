@@ -1,0 +1,1 @@
+06-mod-method-intro.mp4: Static 16:9 MOD method introduction video using resrc/mod_decoder.png and Kokoro am_liam narration

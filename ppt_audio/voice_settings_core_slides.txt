@@ -1,0 +1,3 @@
+voice=am_liam
+speed=1.14
+notes=core pipeline slides refreshed with younger male Kokoro voice and smoother spoken wording

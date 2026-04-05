@@ -1,0 +1,62 @@
+Slide 01 - MessyKitchens Introduction
+We introduce MessyKitchens, a high-fidelity, contact-rich benchmark with accurate 3D ground truth.
+
+Slide 02 - Real-World Dataset Overview (Slides 2-3)
+Our MessyKitchens dataset contains real-world scenes featuring cluttered environments, together with high-fidelity object-level ground truth in terms of 3D object shapes, poses, and accurate object contacts.
+
+Slide 04 - MessyKitchens Real Scenes
+The MessyKitchens Real dataset contains one hundred high-fidelity and accurately registered scenes.
+
+Slide 05 - Object Scans
+Along with the scenes, we also provide high-quality colored 3D scans of one hundred and thirty kitchen objects.
+
+Slide 06 - Dataset Creation Pipeline
+Now we briefly describe our pipeline for creating the MessyKitchens Real dataset.
+
+Slide 07 - Object Scanning
+We start with 3D scanning of the objects used to compose the cluttered scenes.
+
+Slide 08 - After Object Scanning
+After successfully scanning the 3D objects, we move to scene construction.
+
+Slide 09 - Scene Scanning
+We compose the scene and then take a 3D scan of the full scene using the same 3D scanner.
+
+Slide 10 - Scene Mesh Processing
+We then process the scans to obtain the 3D mesh of the scene.
+
+Slide 11 - Manual Alignment
+To begin the object-to-scene registration process for creating the ground truth data, we start with a quick manual alignment step.
+
+Slide 12 - Initial Transformations
+This provides an approximate initial object-to-scene transformation for each object in the scene.
+
+Slide 13 - Stage One Registration (Slides 13-14)
+To provide highly accurate ground truth with rich contacts, we follow a two-stage registration process. In the first stage, we refine the initial transformations using a distance-based cost function.
+
+Slide 15 - Stage Two Registration (Slides 15-16)
+In the second stage, we take the transformations from stage one as input and refine them further using both distance and surface-normal based cost functions.
+
+Slide 17 - Final Scene Ground Truth
+Finally, we use the resulting highly accurate transformations to compose the 3D ground truth of the scene.
+
+Slide 18 - Why Two Stages
+This two-stage procedure first ensures geometric proximity, and then resolves thin-surface ambiguities through normal coherence, resulting in physically plausible object-to-scene alignments.
+
+Slide 19 - Scene Image Capture
+At the time of scanning, we also capture images of the scene using a cell phone camera.
+
+Slide 20 - Multi-View Capture
+To acquire the scene from a variety of viewpoints, the images are captured at three different elevation levels and five different azimuth angles.
+
+Slide 21 - Real Examples (Slides 21-23)
+Now we show a few examples from our dataset to demonstrate the quality of the ground truth. The registration is highly accurate and preserves the contacts between objects.
+
+Slide 24 - Synthetic Dataset Motivation (Slides 24-25)
+To enable training on MessyKitchens, we construct a synthetic dataset, MessyKitchens Synthetic, with close similarity to our real-scene setup.
+
+Slide 26 - Synthetic Dataset Scale
+The MessyKitchens Synthetic dataset contains one thousand eight hundred physically plausible, penetration-free, and contact-rich scenes, together with ten thousand eight hundred high-quality renderings of these scenes.
+
+Slide 27 - Synthetic Examples (Slides 27-29)
+To demonstrate the quality of our simulations, we show examples from the MessyKitchens Synthetic dataset. All scenes are physically plausible, contact-rich, and have zero penetration between objects.

@@ -1,0 +1,7 @@
+voice=am_liam
+speed=1.12
+language=a
+output_format=aac_m4a
+sample_rate=24000
+channels=1
+notes=Regenerated with Kokoro KPipeline in the local conda kokoro environment to match the previous am_liam_fast voice.

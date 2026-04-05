@@ -1,0 +1,3 @@
+voice=am_liam
+speed=1.14
+notes=phase2 refreshed with younger male Kokoro voice and smoother spoken wording
