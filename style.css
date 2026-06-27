@@ -249,6 +249,13 @@ table {
   background: rgba(182, 90, 61, 0.18);
 }
 
+.status-chip-logo {
+  width: 1.35em;
+  height: 1.35em;
+  flex: 0 0 auto;
+  margin-right: 0.48rem;
+}
+
 .quick-links a:hover,
 .quick-links a:focus {
   border-color: rgba(182, 90, 61, 0.32);
