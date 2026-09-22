@@ -156,6 +156,15 @@ table {
   margin: 0 auto;
 }
 
+.project-acceptance {
+  margin: 1.3rem 0 0;
+  color: #c62828;
+  font-size: clamp(20px, 2.2vw, 28px);
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+}
+
 .project-intro h4 {
   margin: 0.95rem 0 0.4rem;
   font-size: 1.84rem;
@@ -247,6 +256,20 @@ table {
 .status-chip-link:focus {
   color: var(--text);
   background: rgba(182, 90, 61, 0.18);
+}
+
+.project-actions .status-chip-code {
+  color: #c62828;
+  border-color: rgba(198, 40, 40, 0.3);
+  background: rgba(198, 40, 40, 0.07);
+  font-weight: 700;
+}
+
+.project-actions .status-chip-code:hover,
+.project-actions .status-chip-code:focus {
+  color: #a61f1f;
+  border-color: #c62828;
+  background: rgba(198, 40, 40, 0.12);
 }
 
 .status-chip-logo {
