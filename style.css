@@ -23,10 +23,12 @@ body {
 }
 
 .container {
-  width: 100%;
-  max-width: 1760px;
-  padding-left: 38px;
-  padding-right: 38px;
+  width: calc(100% - 64px);
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .page-column {
@@ -88,7 +90,7 @@ hr.new {
 p {
   margin-bottom: 1.1rem;
   color: var(--text);
-  font-size: 1.46rem;
+  font-size: 18px;
   line-height: 1.82;
   text-align: left;
 }
@@ -292,7 +294,6 @@ table {
 }
 
 .teaser-frame {
-  max-width: 1360px;
   margin: 0 auto;
   padding: 0.8rem;
   border: 1px solid rgba(33, 26, 22, 0.08);
@@ -457,7 +458,7 @@ table {
 .dataset-annotation-media,
 .dataset-annotation-video,
 .comparison-inline-media {
-  width: 90%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   border-radius: 20px;
@@ -549,7 +550,7 @@ table {
 
 @media (max-width: 991px) {
   p {
-    font-size: 1.28rem;
+    font-size: 16px;
     line-height: 1.72;
   }
 
@@ -569,26 +570,6 @@ table {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-}
-
-@media (min-width: 1180px) {
-  .container {
-    padding-left: 38px;
-    padding-right: 38px;
-  }
-
-  .page-column {
-    width: min(1092px, calc(100vw - 120px));
-    max-width: none;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-
-  .teaser-frame {
-    max-width: none;
-  }
 }
 
 .quick-links a.is-active {
@@ -617,7 +598,7 @@ table {
   }
 
   p {
-    font-size: 1.08rem;
+    font-size: 16px;
     line-height: 1.68;
   }
 
@@ -638,8 +619,7 @@ table {
   }
 
   .container {
-    padding-left: 20px;
-    padding-right: 20px;
+    width: calc(100% - 40px);
   }
 
   .project-intro {
