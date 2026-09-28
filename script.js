@@ -384,8 +384,8 @@ const createSceneViewer = (container, ui) => {
     needsRender = true;
   };
 
-  const load = url => {
-    if (!url || url === requested) return;
+  const load = (url, attempt = 1) => {
+    if (!url || (url === requested && attempt === 1)) return;
     requested = url;
     disposeCurrent();
     ui.loading('Loading 3D scene…');
@@ -411,6 +411,17 @@ const createSceneViewer = (container, ui) => {
       },
       () => {
         if (url !== requested) return;
+        // Pages opened straight from disk cannot fetch the scene file.
+        if (location.protocol === 'file:') {
+          requested = null;
+          ui.error('The 3D scene needs the page to be served over http(s) (for example: python3 -m http.server in the site folder).');
+          return;
+        }
+        // Large downloads occasionally drop; retry twice before giving up.
+        if (attempt < 3) {
+          setTimeout(() => { if (url === requested) load(url, attempt + 1); }, 800 * attempt);
+          return;
+        }
         requested = null; // selecting the scene again retries
         ui.error('This 3D scene could not be loaded. Select it again to retry.');
       },

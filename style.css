@@ -228,7 +228,21 @@ sup { position: relative; top: -0.1em; font-size: 0.66em; line-height: 0; vertic
   line-height: 1.6;
   text-wrap: balance;
 }
-.equal-note { margin-top: 4px; color: var(--ink-3); font-size: 13.5px; }
+.equal-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 12px;
+  padding: 3px 12px;
+  border: 1px solid #efd9d2;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.equal-note sup { top: 0; color: var(--accent); font-size: 1em; font-weight: 700; vertical-align: baseline; }
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
